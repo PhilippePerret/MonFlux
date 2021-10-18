@@ -16,7 +16,8 @@
   *
   */
 window.Ajax = {
-	url: 			'./ajax.rb',
+	// url: 			'./ajax.rb',
+  url:      './ajax.php',
   //onreturn:	null,
 
 	// Message dans le flash pendant l'opération ajax
@@ -46,10 +47,10 @@ window.Ajax = {
 		// Note : Même si le message est défini ci-dessus, il peut avoir
 		// été mis à null par la méthode appelante. Il faut donc faire le
 		// test ci-dessous.
-		Flash.clear('Ajax.send');
-		if (this.message_on_operation){
-			Flash.show(this.message_on_operation)
-		}
+		// Flash.clear('Ajax.send');
+		// if (this.message_on_operation){
+		// 	Flash.show(this.message_on_operation)
+		// }
     this.ok = ok ;
     this.ko = ko ;
     this.proceed_send_json(data); // version sans jQuery
@@ -75,6 +76,7 @@ window.Ajax = {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       if (xhr.status === 200) {
+        console.log("xhr = ", xhr)
         var newhdata = JSON.parse(xhr.responseText);
         if (newhdata.error){
           console.error(newhdata.error.message);
@@ -98,6 +100,7 @@ window.Ajax = {
 			// les caractères '&' et '='. Notez que encodeURI ne traite pas ces
 			// caractères-là.
 			const xhrData = encodeURIComponent(JSON.stringify(hdata))
+      console.log("xhrData = ", xhrData)
 			xhr.send(xhrData);
 		} catch (err) {
 			console.error("ERREUR AVEC LE TABLEAU SUIVANT : ", err)

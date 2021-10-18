@@ -1,9 +1,13 @@
 <?php
 
-$code = $_POST["code_decoupe"];
-$res = shell_exec($code);
+// $code = $_POST['data'];
+// $code = $_REQUEST['code'];
+// $keys = array_keys($_POST);
+$keys = array_keys($_REQUEST);
+// $code = "bonjour";
+// $res = shell_exec($code);
 
 
+echo '{"ok":"' . implode(', ', $keys) . '"}';
+// echo '{"ok":true}';
 ?>
-<p style="font-family:'Courier New';"><?php echo $code ?></p>
-<p>Résultat : <?php echo $res; ?></p>

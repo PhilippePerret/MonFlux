@@ -1,5 +1,8 @@
 # TODO list
 
+* Reprendre la procédure ajax avec le formulaire (comme pour la découpe de partition)
+  - il suffit de créer un formulaire caché dans lequel mettre les données à transmettre et de le soumettre
+
 * Corriger le fichier ajax.php pour qu’il remplisse bien le rôle attendu
   * Le mettre ensuite dans le scaffold
 
