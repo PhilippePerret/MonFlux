@@ -1,0 +1,16 @@
+/*
+  Container principaux des tâches
+*/
+section.task-container {
+  border: 1px solid #DDD;
+  position: relative;
+  width: 33%;
+  display: inline-block;
+  min-height: 100px;
+}
+section.task-container legend {
+  position: absolute;
+  color: #CCC;
+  top: 10px;
+  left: 10px;
+}
