@@ -7,5 +7,7 @@
  * 
  **/
 class Task {
-
-}
+  constructor(data){
+    this.data = data
+  }
+}// class Task
