@@ -2,15 +2,28 @@
   Container principaux des tâches
 */
 section.task-container {
+  position: abolute;
   border: 1px solid #DDD;
-  position: relative;
   width: 33%;
+  top: 0;
   display: inline-block;
   min-height: 100px;
 }
 section.task-container legend {
-  position: absolute;
   color: #CCC;
   top: 10px;
   left: 10px;
+}
+
+/* Les div contenant les tâches */
+section.task-container > div.tasks {
+  overflow: auto;
+}
+
+/* Les tâches principales */
+section.task-container > div.tasks > div.task {
+  border: 1px solid #DDD;
+  border-radius: 12px;
+  width: 100%;
+  min-height: 80px;
 }

@@ -11,6 +11,7 @@
   <script type="text/javascript" src="js/System/jquery-ui.min.js"></script>
   <script type="text/javascript" src="js/System/jquery.form.min.js"></script>
   <script type="text/javascript" src="js/System/ajax_by_php.js"></script>
+  <script type="text/javascript" src="js/System/dom.js"></script>
 </head>
 
 <body>
@@ -18,18 +19,21 @@
 
   <section id="sans_echeances" class="task-container">
     <legend>Tâches sans échéances</legend>
+    <div class="tasks"></div>
   </section>
 
-  <section id="courantes" class="task-container">
+  <section id="current" class="task-container">
     <legend>Travaux courants</legend>
+    <div class="tasks"></div>
   </section>
 
   <section id="historique" class="task-container">
     <legend>Historique de travail</legend>
+    <div class="tasks"></div>
   </section>
 
 
-  <form id="ajax_form">
+  <form id="ajax_form" class="hidden">
     <input type="text" name="ajax_script" id="ajax_script" value="">
     <textarea name="ajax_data" id="ajax_data"></textarea>
   </form>
