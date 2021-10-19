@@ -58,8 +58,13 @@ function ajax(data){
     var xhr = form.data('jqxhr');
     xhr.done(function(ret) {
       // console.log("Retour ajax", ret) // pour le débug
-      var retour_json = JSON.parse(ret)
-      ok(retour_json.resultat)
+      try {
+        var retour_json = JSON.parse(ret)
+        ok(retour_json.resultat)
+      } catch(erreur) {
+        console.error("Impossible de parser le retour d'ajax : ", erreur)
+        console.error("Retour : ", ret)
+      }
     });
   })
 
