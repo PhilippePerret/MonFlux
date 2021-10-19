@@ -1,7 +1,7 @@
 # TODO list
 
 
-* Faire fonctionner le classement des tâches par date (ça ne doit pourtant pas être compliqué mais je me noie dans un verre d'eau…)
+* FAIRE FONCTIONNER LE CLASSEMENT DES TÂCHES par date (ça ne doit pourtant pas être compliqué mais je me noie dans un verre d'eau…………………)
 
 
 * Les tâches qui n'ont pas été faites sont automatiquement reporter au lendemain.

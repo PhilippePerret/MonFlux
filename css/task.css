@@ -15,6 +15,15 @@ section.task-container legend {
   left: 10px;
 }
 
+/* N'importe quelle tâche */
+section.task-container div.task {
+  border: 2px solid transparent;
+}
+section.task-container div.task:hover {
+  border-color: #CCF;
+}
+
+
 /* Les div contenant les tâches */
 section.task-container > div.tasks {
   overflow: auto;
@@ -22,11 +31,17 @@ section.task-container > div.tasks {
 
 /* Les tâches principales */
 section.task-container > div.tasks > div.task {
-  border: 1px solid #DDD;
-  border-radius: 12px;
-  width: calc(100% - 72px);
+  /*border: 1px solid #DDD;*/
+  /*border-radius: 12px;*/
+  width: calc(100% - 76px);
   margin-left: 40px;
   padding: 8px 16px;
+}
+
+section.task-container > div.tasks div.task.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+  font-style: italic;
 }
 
 

@@ -11,6 +11,12 @@ class Task {
     this.data = data
   }
 
+/**
+ * --- Méthode d'action --- */
+save(){
+  console.info("Je dois sauver la tâche", this)
+}
+
   /**
    * Construction et surveillance de la tâche
    */
@@ -21,14 +27,46 @@ class Task {
   build(){
     var o ;
     this.obj = DCreate('DIV', {id: this.domId, class:'task', 'data-time':this.time})
-    o = DCreate('DIV', {class:'content', text:this.content})
+    var toolbox = DCreate('DIV', {class:'tools fright'})
+    o = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
+    toolbox.appendChild(o)
+    this.obj.appendChild(toolbox)
+    o = DCreate('SPAN', {class:'content', text:this.content})
     this.obj.appendChild(o)
 
     this.container.addTask(this)
   }
+
   observe(){
-    console.log("Je dois observer", this)
+    this.setEtat()
+    this.doneButton.addEventListener('click', this.onToggleDone.bind(this))
   }
+
+/**
+ * Définit l'état visuellement (fait/à faire)
+**/
+setEtat(){
+  var btnName ;
+  if ( this.isDone ){
+    this.obj.classList.add('done')
+    btnName = 'refaire'
+  } else {
+    this.obj.classList.remove('done')
+    btnName = 'ok'
+  }
+  this.doneButton.innerHTML = btnName
+}
+
+get doneButton(){
+  return this._btndone || (this._btndone = DGet('.done_btn', this.obj))
+}
+/**
+ * --- Méthode d'observation des évènement ---
+**/
+onToggleDone(e){
+  this.state = this.isDone ? 1 : 2
+  this.save()
+}
 
 
 /**
@@ -38,6 +76,10 @@ class Task {
 get isHistorique(){
   console.log("this.container_id = ", this.container_id)
   return this.container_id == 2
+}
+// Retourne true si la tâche est faite
+get isDone(){
+  return this.state == 2
 }
 // La date comme date
 get dateAsDate(){
@@ -78,7 +120,11 @@ set date(v){
 }
 get container_id(){return this._container_id || (this._container_id = this.data['container'])}
 set container_id(v){this._container_id = this.data['container'] = v}
-
+get state(){return this._state || (this._state = this.data['state'])}
+set state(v){
+  this._state = this.data['state'] = v
+  this.setEtat()
+}
 
 
 /**
