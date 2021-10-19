@@ -13,10 +13,12 @@
 class Tasks {
 
   static load_and_display(){
-    ajax({code: "say 'bonjour, Phil !'"})
+
+    ajax({script:"load_task.rb", type:'current'})
       .then(ret => {
-        console.log("Je reviens avec ", ret)
+        console.log("Le retour d'ajax : ", ret)
       })
+
   }
 
 }
