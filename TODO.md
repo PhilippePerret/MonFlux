@@ -1,19 +1,7 @@
 # TODO list
 
-* Reprendre la procédure ajax avec le formulaire (comme pour la découpe de partition)
-  - il suffit de créer un formulaire caché dans lequel mettre les données à transmettre et de le soumettre
 
-* Corriger le fichier ajax.php pour qu’il remplisse bien le rôle attendu
-  * Le mettre ensuite dans le scaffold
-
-
-* Diviser l'écran en trois parties :
-  - une partie servira pour l'historique, c'est-à-dire les tâches accomplies dans la journée ou à accomplir dans la journée. Un simple bouton permettra de décider si la tâche a été faite ou est à faire dans la journée.
-  - une partie servira à mettre les tâches sans échéance à faire
-  - une partie servira à afficher les tâches en cours. Par exemple, aujourd'hui, cette partie contiendrait :
-    * commenter le document de Jérôme
-    * poursuivre le livre sur toutes les gammes et tous les accords
-    * Développer MonFlux
+* Faire fonctionner le classement des tâches par date (ça ne doit pourtant pas être compliqué mais je me noie dans un verre d'eau…)
 
 
 * Les tâches qui n'ont pas été faites sont automatiquement reporter au lendemain.

@@ -24,6 +24,16 @@ section.task-container > div.tasks {
 section.task-container > div.tasks > div.task {
   border: 1px solid #DDD;
   border-radius: 12px;
-  width: 100%;
-  min-height: 80px;
+  width: calc(100% - 72px);
+  margin-left: 40px;
+  padding: 8px 16px;
+}
+
+
+
+/* Les jour dans l'historique */
+section.task-container div.tasks div.jour {
+  font-weight: bold;
+  font-family: 'Arial';
+  font-size: 1.15em;
 }
