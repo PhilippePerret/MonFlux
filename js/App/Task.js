@@ -17,35 +17,50 @@ save(){
   console.info("Je dois sauver la tâche", this)
 }
 
-
+/**
+ * Méthode principale appelée pour construire et placer la
+ * tâche.
+ * Il faut commencer par elle et non pas par build_and_observe
+ * car la méthode build() a besoin de connaitre le :time de la
+ * tâche, et ce time est dépendant du jour et du groupe auxquels
+ * appartient la tâche. Et ce jour (Jour) et ce groupe ({GroupDay})
+ * sont définis dans les méthodes de TaskContainer.
+ * 
+**/
 addInContainer(){
   this.container.addTask(this) 
 }
 
-  /**
-   * Construction et surveillance de la tâche
-   */
-  build_and_observe(){
-    this.build()
-    this.observe()
-    return this._obj
-  }
-  build(){
-    var o ;
-    const obj = DCreate('DIV', {id: this.domId, class:'task', 'data-time':this.time})
-    var toolbox = DCreate('DIV', {class:'tools fright'})
-    o = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
-    toolbox.appendChild(o)
-    obj.appendChild(toolbox)
-    o = DCreate('SPAN', {class:'content', text:this.content})
-    obj.appendChild(o)
-    this._obj = obj
-  }
+/**
+ * Construction et surveillance de la tâche
+ */
+build_and_observe(){
+  this.build()
+  this.observe()
+  return this._obj
+}
+build(){
+  var o ;
+  const obj = DCreate('DIV', {id: this.domId, class:'task', 'data-time':this.time})
+  
+  // Boite des boutons
+  var toolbox = DCreate('DIV', {class:'tools fright'})
+  o = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
+  toolbox.appendChild(o)
+  o = DCreate('a', {class:'btn kill_btn', text:'❌'})
+  toolbox.appendChild(o)
+  obj.appendChild(toolbox)
+  
+  o = DCreate('SPAN', {class:'content', text:this.content})
+  obj.appendChild(o)
+  this._obj = obj
+}
 
-  observe(){
-    this.setEtat()
-    this.doneButton.addEventListener('click', this.onToggleDone.bind(this))
-  }
+observe(){
+  this.setEtat()
+  this.doneButton.addEventListener('click', this.onToggleDone.bind(this))
+  this.killButton.addEventListener('click', this.onKillTask.bind(this))
+}
 
 /**
  * Définit l'état visuellement (fait/à faire)
@@ -65,14 +80,28 @@ setEtat(){
 get doneButton(){
   return this._btndone || (this._btndone = DGet('.done_btn', this.obj))
 }
+get killButton(){
+  return this._btnkill || (this._btnkill = DGet('.kill_btn', this.obj))
+}
+
+
+
 /**
  * --- Méthode d'observation des évènement ---
 **/
+
+
 onToggleDone(e){
   this.state = this.isDone ? 1 : 2
   this.save()
+  return stopEvent(e)
 }
 
+// Quand on clique sur le bouton "x" de la tâche, pour la supprimer
+onKillTask(e){
+  console.info("Je dois détruire la tâche (je ne sais pas encore le faire")
+  return stopEvent(e)
+}
 
 /**
  * --- Propriétés volatiles ---
