@@ -16,7 +16,16 @@ class Tasks {
 
     ajax({script:"load_task.rb", type:'current'})
     .then(ret => {
-      var taches = ret.tasks.map(dtache => { return new Task(dtache) })
+      var taches = ret.tasks.map(dtache => {
+        // 
+        // De façon automatique, si une tâche n'a pas été exécutée,
+        // elle est mise à aujourd'hui (si elle est dans l'historique)
+        //
+        if ( dtache.container == 2 && dtache.state == 1 ) {
+          dtache['date'] = Jour.todayAsYYMMDD
+        }
+        return new Task(dtache)
+      })
       this.display_all_tasks.call(this, taches)
     })
 
@@ -27,8 +36,10 @@ class Tasks {
    * +taches+ Liste des instances Task des tâches
    */
   static display_all_tasks(taches){
-    console.log("Je dois afficher : ", taches)
-    taches.forEach(tache => tache.addInContainer() )
+    // console.log("Tâches à afficher : ", taches)
+    taches.forEach(tache => {
+      tache.addInContainer() 
+    })
   }
 
 

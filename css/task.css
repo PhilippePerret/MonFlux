@@ -25,7 +25,7 @@ section.task-container div.task:hover {
 
 /* La "boite à outils" de la tâche */
 section.task-container div.task div.tools {
-  opacity: 0.4;
+  opacity: 0.15;
 }
 section.task-container div.task div.tools:hover {
   opacity: 1;

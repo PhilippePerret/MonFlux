@@ -14,6 +14,19 @@ static addJour(jour){
   Object.assign(this.items, {[jour.yymmdd]: jour})
 }
 
+static get todayAsYYMMDD(){
+  return this._asyymmdd || (this.__asyymmdd = this.getTodayAsYYMMDD())
+}
+
+static getTodayAsYYMMDD(){
+  var d = new Date()
+  return `${d.getFullYear() - 2000}/${String(d.getMonth() + 1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`
+}
+/**
+ * ==== INSTANCE ====
+ * 
+ */
+
 constructor(yymmdd){
   this.yymmdd = yymmdd
   this.constructor.addJour(this)

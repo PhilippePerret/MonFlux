@@ -38,7 +38,7 @@ class TaskContainer {
  * 
  */
 addTask(task){
-  console.log("Ajout de la tâche", task)
+  // console.log("Ajout de la tâche", task)
   if ( task.isHistorique ) { 
     this.ensureJourOfTaskExiste(task)
     this.ensureGroupOfTaskExists(task)
@@ -53,10 +53,10 @@ addTask(task){
 ensureJourOfTaskExiste(task){
   const jour = task.date
   if ( DGet(`div.jour[data-jour="${jour}"]`, this.taskContainer) ){
-    console.log("Le jour %s existe déjà", jour )
+    // console.log("Le jour %s existe déjà", jour )
     task.jour = Jour.getByJour(jour)
   } else {
-    console.log("Ajout du JOUR ", jour)
+    // console.log("Ajout du JOUR ", jour)
     const ijour = new Jour(jour)
     task.jour = ijour
     this.placeElementInHistorique(ijour)
@@ -69,15 +69,15 @@ ensureJourOfTaskExiste(task){
  * 
  */
 ensureGroupOfTaskExists(task){
-  console.log("Assurer le groupe de la tâche : ", task)
+  // console.log("Assurer le groupe de la tâche : ", task)
   if (DGet(`div.group[data-jour="${task.date}"][data-group="${task.group}"]`, this.taskContainer)){
-    console.log("Le groupe '%s' existe pour le jour %s", task.group, task.date)
+    // console.log("Le groupe '%s' existe pour le jour %s", task.group, task.date)
     task.groupday = GroupDay.get(task.date, task.group)
   } else {
     const igroupday = new GroupDay(task.group, task.jour)
     task.groupday = igroupday
     this.placeElementInHistorique(igroupday)
-    console.log("Ajout du groupe-jour", igroupday)
+    // console.log("Ajout du groupe-jour", igroupday)
   }
 }
 
