@@ -51,4 +51,16 @@ section.task-container div.tasks div.jour {
   font-weight: bold;
   font-family: 'Arial';
   font-size: 1.15em;
+  border-top: 1px solid #CCC;
+  margin-top: 1em;
+  padding-top: 0.8em;
+  margin-left: 8px;
+}
+/* Les groupes (groupDay) dans l'historique */
+section.task-container div.tasks div.group {
+  font-variant: all-small-caps;
+  font-weight: bold;
+  font-family: 'Arial Narrow';
+  font-size: 1.2em;
+  margin-left: 1em;
 }

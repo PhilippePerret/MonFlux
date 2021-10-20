@@ -28,9 +28,8 @@ class Tasks {
    */
   static display_all_tasks(taches){
     console.log("Je dois afficher : ", taches)
-    taches.forEach(tache => tache.build_and_observe())
+    taches.forEach(tache => tache.addInContainer() )
   }
-
 
 
 static get containerSansEcheances(){

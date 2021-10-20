@@ -6,11 +6,38 @@
  * 
  */
 class Jour {
-constructor(jour){
-  this.jour = jour
+static getByJour(yymmdd){
+  return this.items[yymmdd]
 }
+static addJour(jour){
+  this.items || (this.items = {});
+  Object.assign(this.items, {[jour.yymmdd]: jour})
+}
+
+constructor(yymmdd){
+  this.yymmdd = yymmdd
+  this.constructor.addJour(this)
+}
+
+
+/**
+ * Ajoute un "groupe-jour" (GroupDay) au jour 
+ * Un groupe-jour, c'est quelque chose comme "CAMI" ou "ICARE" mais
+ * propre à chaque jour.
+ * 
+ * @return l'index du nouveau group-jour (GroupDay) dans le jour
+ *          (1-start)
+ * 
+ */
+addGroup(groupName){
+  this.groupsNames || (this.groupsNames = []);
+  this.groupsNames.push(groupName)
+  return this.groupsNames.length
+}
+
+
 build(){
-  const o = DCreate('DIV', {class:'jour', 'data-jour':this.jour, 'data-time': this.time, text:this.formated})
+  const o = DCreate('DIV', {class:'jour', 'data-jour':this.yymmdd, 'data-time': this.time, text:this.formated})
   return o
 }
 
@@ -48,7 +75,7 @@ getTime(){
  * 
 **/
 getDate(){
-  var [annee,mois,jour] = this.jour.split('/')
+  var [annee,mois,jour] = this.yymmdd.split('/')
   annee = this.annee = Number('20'+annee)
   mois  = this.mois  = Number(mois) - 1
   jour  = this.jour  = Number(jour)

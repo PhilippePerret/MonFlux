@@ -3,6 +3,16 @@
 
 * FAIRE FONCTIONNER LE CLASSEMENT DES TÂCHES par date (ça ne doit pourtant pas être compliqué mais je me noie dans un verre d'eau…………………)
 
+Réflexion sur le fonctionnement
+-------------------------------
+Le jour porte la date <xxxxx>12:00:00
+Une tâche du jour sera toujours inférieure (donc en dessous)
+  Pour le moment, elle est mise à 00:00:00, mais il faut tenir compte de son groupe
+Une tâche peut appartenir à un groupe (comme "ICARE" ou "CAMI", etc.)
+  Les groupes sont placés toutes les 10 minutes dans le jour, ça signifie
+  qu'on peut en avoir 12 x 6 = 72 groupes
+  => Il faut donc mémoriser les groupes dans les jours
+
 
 * Les tâches qui n'ont pas été faites sont automatiquement reporter au lendemain.
 

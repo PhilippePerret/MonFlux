@@ -17,24 +17,29 @@ save(){
   console.info("Je dois sauver la tâche", this)
 }
 
+
+addInContainer(){
+  this.container.addTask(this) 
+}
+
   /**
    * Construction et surveillance de la tâche
    */
   build_and_observe(){
     this.build()
     this.observe()
+    return this._obj
   }
   build(){
     var o ;
-    this.obj = DCreate('DIV', {id: this.domId, class:'task', 'data-time':this.time})
+    const obj = DCreate('DIV', {id: this.domId, class:'task', 'data-time':this.time})
     var toolbox = DCreate('DIV', {class:'tools fright'})
     o = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
     toolbox.appendChild(o)
-    this.obj.appendChild(toolbox)
+    obj.appendChild(toolbox)
     o = DCreate('SPAN', {class:'content', text:this.content})
-    this.obj.appendChild(o)
-
-    this.container.addTask(this)
+    obj.appendChild(o)
+    this._obj = obj
   }
 
   observe(){
@@ -81,13 +86,20 @@ get isHistorique(){
 get isDone(){
   return this.state == 2
 }
+
+// Le jour ({Jour}) de la tâche
+get jour() { return this._jour }
+set jour(v){ this._jour = v }
 // La date comme date
 get dateAsDate(){
   return this._dasd || (this._dasd = this.getDate())
 }
 // Les microsecondes
 get time(){
-  return this._time || (this._time = parseInt(this.dateAsDate.getTime()/10000,10))
+  return this._time || (this._time = this.getTime())
+}
+get obj(){
+  return this._obj || (this._obj = this.build_and_observe() )
 }
 get container(){
   return this._container || (this._container = this.defineContainer())
@@ -106,6 +118,8 @@ get contentField(){
 
 get id(){return this._id || (this._id = this.data['id']) }
 set id(v){this._id = this.data['id'] = v}
+get group(){return this._group || (this._group = (this.data['group']||'divers') ) }
+set group(v){this._group = this.data['group'] = v}
 get content(){return this._content || (this._content = this.data['content'])}
 set content(v){
   this._content = this.data['content'] = v
@@ -140,8 +154,15 @@ defineContainer(){
 }
 
 getDate(){
-  var [annee, mois, jour] = this.date.split('/')
-  annee = Number('20' + annee)
-  return new Date(annee, Number(mois) - 1, Number(jour), 1, 0, 0)
+  // var [annee, mois, jour] = this.date.split('/')
+  // annee = Number('20' + annee)
+  // return new Date(annee, Number(mois) - 1, Number(jour), 0, 0, 0)
+
+  var d = new Date()
+  d.setTime(this.groupday.date.getTime() - 1000)
+  return d
+}
+getTime(){
+  return parseInt(this.dateAsDate.getTime()/10000,10)
 }
 }// class Task
