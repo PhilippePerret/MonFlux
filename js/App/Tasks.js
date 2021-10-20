@@ -12,8 +12,13 @@
  **/
 class Tasks {
 
-  static load_and_display(){
+  static getNextId(){
+    this.lastId || (this.lastId = 0);
+    return String(++ this.lastId).padStart(4,'0')
+  }
 
+  static load_and_display(){
+    this.lastId = 0;
     ajax({script:"load_task.rb", type:'current'})
     .then(ret => {
       var taches = ret.tasks.map(dtache => {
@@ -24,6 +29,12 @@ class Tasks {
         if ( dtache.container == 2 && dtache.state == 1 ) {
           dtache['date'] = Jour.todayAsYYMMDD
         }
+        //
+        // Pour mémoriser le dernier identifiant utilisé
+        //
+        var lid = parseInt(dtache['id'],10);
+        if ( lid > this.lastId ) this.lastId = Number(lid)
+
         return new Task(dtache)
       })
       this.display_all_tasks.call(this, taches)

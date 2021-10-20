@@ -109,9 +109,11 @@ const NOW = new Date()
   @documented
 **/
 function humanDateFor(timeSeconds){
+  // console.log("timeSeconds", timeSeconds)
   if (undefined === timeSeconds){ timeSeconds = new Date()}
   if ('number' != typeof(timeSeconds)) timeSeconds = parseInt(timeSeconds.getTime() / 1000)
-  var d = new Date(timeSeconds * 1000)
+  const d = new Date(timeSeconds * 1000)
+  // console.log("d = ", d)
   return `${String(d.getDate()).padStart(2,'0')} ${(String(d.getMonth()+1)).padStart(2,'0')} ${d.getFullYear()}`;
 }
 

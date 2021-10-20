@@ -2,17 +2,39 @@
   Container principaux des tâches
 */
 section.task-container {
-  position: abolute;
+  position: fixed;
   border: 1px solid #DDD;
   width: 33%;
   top: 0;
   display: inline-block;
   min-height: 100px;
 }
+section#sans_echeances {left: 0px}
+section#current {left: 34%}
+section#historique {right: 0%}
+
 section.task-container legend {
   color: #CCC;
   top: 10px;
   left: 10px;
+}
+section.task-container > div.container_footer {
+  position: absolute;
+  bottom: 0;
+  left:  0;
+  background-color: #EEE;
+  height: 40px;
+  width: 100%;
+}
+
+section.task-container > div.container_footer a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #777;
+  text-align: center;
+  line-height: 2em;
+  cursor: pointer;
 }
 
 /* N'importe quelle tâche */

@@ -7,14 +7,35 @@
  * 
  **/
 class Task {
-  constructor(data){
-    this.data = data
-  }
+constructor(data){
+  this.data = data
+}
 
 /**
- * --- Méthode d'action --- */
+ * --- Méthodes d'action --- 
+**/
+
 save(){
-  console.info("Je dois sauver la tâche", this)
+  ajax({script:'save_task.rb', data: this.data})
+  .then(ret => {
+    console.info("Tâche sauvée avec ses nouvelles données", this)
+  })
+}
+
+edit(){
+  TaskEditor.edit(this)
+}
+
+/**
+ * Actualisation des données de la tâche 
+ * (avec les données renvoyées par l'éditeur de tâche)
+ * 
+ */
+update(newData){
+  Object.keys(newData).forEach(key => {
+    this[key] = newData[key]
+  })
+  this.save()
 }
 
 /**
@@ -108,7 +129,6 @@ onKillTask(e){
  **/
 // Retourne true si c'est une tâche dans l'historique
 get isHistorique(){
-  console.log("this.container_id = ", this.container_id)
   return this.container_id == 2
 }
 // Retourne true si la tâche est faite
@@ -149,6 +169,8 @@ get id(){return this._id || (this._id = this.data['id']) }
 set id(v){this._id = this.data['id'] = v}
 get group(){return this._group || (this._group = (this.data['group']||'divers') ) }
 set group(v){this._group = this.data['group'] = v}
+get files(){return this._files || (this._files = (this.data['files']||[]) ) }
+set files(v){this._files = this.data['files'] = v}
 get content(){return this._content || (this._content = this.data['content'])}
 set content(v){
   this._content = this.data['content'] = v

@@ -15,13 +15,18 @@ static get(yymmdd, groupName){
   return this.items[`${yymmdd}::${groupName}`]
 }
 static addItem(item){
-  this.items || (this.items = {});
+  if ( ! this.items ) {
+    this.groupNames = {}
+    this.items      = {}
+  }
   Object.assign(this.items, {[`${item.jour.yymmdd}::${item.groupName}`]: item})
-  console.log("Items de GroupDay:", this.items)
+  if ( ! this.groupNames[item.groupName] ){
+    Object.assign(this.groupNames, {[item.groupName]: []})
+  }
+  this.groupNames[item.groupName].push(item)
 }
 
 constructor(groupName, jour){
-  console.log("Groupe '%s' du jour", groupName, jour)
   this.groupName  = groupName // {String}
   this.jour       = jour ;    // {Jour}
   this.indexGroupInDay = jour.addGroup(groupName)

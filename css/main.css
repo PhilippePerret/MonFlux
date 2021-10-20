@@ -21,7 +21,7 @@ a.btn {
 }
 
 
-button, textarea, input[type="text"] {
+button, textarea, input[type="text"],  select, select option {
   font-size: inherit;
   font-family: inherit;
 }

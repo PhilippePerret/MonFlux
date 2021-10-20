@@ -1,0 +1,46 @@
+div#task_editor {
+  position: absolute;
+  background-color: white;
+  box-shadow: 10px 15px 13px 0px #DDD;
+  padding: 1em;
+  width: 500px;
+  z-index: 100;
+}
+div#task_editor textarea {
+  display: block;
+  margin-left: 12px;
+  margin-right: 12px;
+  width: 92%;
+  resize: none;
+}
+
+div#task_editor select {
+  min-width: 100px;
+}
+
+div#task_editor div.infos,
+div#task_editor div.infos > * 
+{
+  vertical-align: middle;
+}
+
+div#task_editor div.infos span + select {
+  margin-left: 8px;
+  margin-right: 1em;
+}
+
+div#task_editor div.tools {
+  text-align: right;
+  margin-top: 1em;
+}
+
+div#task_editor div.tools a {
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 3px;
+  margin-left: 1em;
+  border: 1px solid #CCC;
+  border-radius: 12px;
+}

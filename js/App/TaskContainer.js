@@ -11,19 +11,64 @@ class TaskContainer {
 
   static get all(){
     return [
-        new this('sans_echeances')
-      , new this('current')
-      , new this('historique')
+        new this(0)
+      , new this(1)
+      , new this(2)
     ]
   }
 
-  constructor(id){
-    this.id = id
+constructor(id){
+  this.id = id
+}
+
+/**
+ * Méthode appelée quand on clique sur le bouton pour ajouter une
+ * tâche à la liste
+**/
+onClickAddButton(e){
+  const dataTask = {
+      id: Tasks.getNextId()
+    , state: this.id == 2 ? 1 : 0
+    , container: this.id
+    , date: Jour.todayAsYYMMDD
+    , content: "Nouveau tâche"
+    , group: 'divers'
+    , tasks: []
+    , files: []
+    ,
   }
+  // console.log("Données de la nouveau tâche", dataTask)
+  const itask = new Task(dataTask)
+  itask.jour      = Jour.getByJour(dataTask.date)
+  itask.groupday  = GroupDay.get(dataTask.date, dataTask.group)
+  this.addTask(itask)
+  itask.edit()
+  return stopEvent(e)
+}
 
   dimensionne(){
     this.obj.style.height = px(window.innerHeight - 40)
   }
+
+  prepare(){
+    this.dimensionne()
+    this.prepareFooter()
+    this.observe()
+  }
+
+observe(){
+  this.addButton.addEventListener('click', this.onClickAddButton.bind(this))
+}
+/**
+ * Pour mettre les boutons dans chaque footer
+ */
+prepareFooter(){
+  this.addButton = DCreate('a', {text: '➕'})
+  this.footer.appendChild(this.addButton)
+}
+
+// @return le pied de page (avec les boutons)
+get footer(){return this._footer || (this._footer = DGet('div.container_footer', this.obj))}
 
 /**
  * Ajoute la tâche +task+ (instance Task) au container
@@ -41,8 +86,8 @@ addTask(task){
   // console.log("Ajout de la tâche", task)
   if ( task.isHistorique ) { 
     this.ensureJourOfTaskExiste(task)
-    this.ensureGroupOfTaskExists(task)
   }
+  this.ensureGroupOfTaskExists(task)
   this.placeElementInHistorique(task)
 }
 
@@ -120,7 +165,10 @@ getAllDivDays(){
 
 
 get obj(){
-  return this._obj || (this._obj = DGet(`section#${this.id}`))
+  return this._obj || (this._obj = DGet(`section#${this.name}`))
+}
+get name(){
+  return this._name || (this._name = ['sans_echeances','current','historique'][this.id])
 }
 get taskContainer(){
   return this._tcont || (this._tcont = DGet('div.tasks', this.obj))
