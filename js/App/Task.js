@@ -115,6 +115,7 @@ observe(){
  * Définit l'état visuellement (fait/à faire)
 **/
 setEtat(){
+  // console.log("-> setEtat", this)
   var btnName ;
   if ( this.isDone ){
     this.obj.classList.add('done')
@@ -162,7 +163,7 @@ get isHistorique(){
 }
 // Retourne true si la tâche est faite
 get isDone(){
-  return this.state == 2
+  return this.state > 1
 }
 
 

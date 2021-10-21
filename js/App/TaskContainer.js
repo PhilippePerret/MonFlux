@@ -168,23 +168,19 @@ placeElementInContainer(foo){
 }
 
 getAllDivTasksOrDays(){
-  console.log("obj (container id %i) : ", this.id, this.obj)
   return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .jour')
 }
 getAllDivTasksOrGroup(){
   return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .group')
 }
-getAllDivTasks(){
-  return this.obj.querySelectorAll('div.tasks > .task')
-}
-getAllDivDays(){
-  return this.obj.querySelectorAll('div.tasks > .jour') 
-}
 
-
+/**
+ * @return l'objet DOM du container
+ */
 get obj(){
   return this._obj || (this._obj = DGet(`section#${this.name}`))
 }
+
 get name(){
   return this._name || (this._name = ['sans_echeances','current','historique'][this.id])
 }
