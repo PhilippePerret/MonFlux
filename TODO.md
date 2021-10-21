@@ -2,6 +2,7 @@
 
 * Peupler les groupes dans l'éditeur de tâche
 * Mettre dans les groupes quand ce n'est pas l'historique
+* Traiter la destruction de tâche
 
 
 ### Principes

@@ -44,6 +44,7 @@ static load_and_display(){
 static instancieAllTasks(ret){
   var taches = ret.tasks.map(dtache => {
     const tache = new Task(dtache)
+    tache.initialize()
     tache.setTodayIfUndone()
     tache.defineLastTaskId()
     return tache ; // map

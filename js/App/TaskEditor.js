@@ -130,11 +130,9 @@ observe(){
 }
 
 peupleGroupMenu(){
-  const groupNames = Object.keys(GroupDay.groupNames || {})
-  groupNames.forEach(groupname => {
-    this.menuGroupes.appendChild(DCreate('OPTION',{value:groupname, text:groupname}))
-  })
+  Group.list.forEach(group => this.menuGroupes.appendChild(group.asOption))
 }
+
 peupleDayMenu(){
   var d = new Date()
   for ( var i = 0; i < 10; ++ i) {

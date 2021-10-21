@@ -53,6 +53,14 @@ addInContainer(){
 }
 
 /**
+ * Démarrage : initialisation de la tâche
+ */
+initialize(){
+  Group.get(this.group) // Pour créer l'instance si elle n'existe pas
+  this.setTodayIfUndone()
+  this.defineLastTaskId()
+}
+/**
  * Démarrage : si c'est une tâche dans l'historique et qu'elle n'a pas été
  * exécutée, on met son jour à aujourd'hui
  * 
