@@ -9,13 +9,31 @@
 
 class TaskContainer {
 
-  static get all(){
-    return [
-        new this(0)
-      , new this(1)
-      , new this(2)
-    ]
-  }
+static get all(){
+  return [
+      this.sans_echeances
+    , this.current
+    , this.historique
+  ]
+}
+
+/**
+ * Pour obtenir le container des tâches historique à l'aide de :
+ *  TaskContainer.historique
+ */
+static get historique(){
+  return this._histo || (this._histo = new TaskContainer(2))
+}
+static get current(){
+  return this._current || (this._current = new TaskContainer(1))
+}
+static get sans_echeances(){
+  return this._sanseche || (this._sanseche = new TaskContainer(0))
+}
+
+/**
+ * ============ INSTANCE ================
+*/
 
 constructor(id){
   this.id = id
@@ -39,22 +57,20 @@ onClickAddButton(e){
   }
   // console.log("Données de la nouveau tâche", dataTask)
   const itask = new Task(dataTask)
-  itask.jour      = Jour.getByJour(dataTask.date)
-  itask.groupday  = GroupDay.get(dataTask.date, dataTask.group)
   this.addTask(itask)
   itask.edit()
   return stopEvent(e)
 }
 
-  dimensionne(){
-    this.obj.style.height = px(window.innerHeight - 40)
-  }
+dimensionne(){
+  this.obj.style.height = px(window.innerHeight - 40)
+}
 
-  prepare(){
-    this.dimensionne()
-    this.prepareFooter()
-    this.observe()
-  }
+prepare(){
+  this.dimensionne()
+  this.prepareFooter()
+  this.observe()
+}
 
 observe(){
   this.addButton.addEventListener('click', this.onClickAddButton.bind(this))
@@ -84,46 +100,18 @@ get footer(){return this._footer || (this._footer = DGet('div.container_footer',
  */
 addTask(task){
   // console.log("Ajout de la tâche", task)
-  if ( task.isHistorique ) { 
-    this.ensureJourOfTaskExiste(task)
+  if ( task.isHistorique ) {
+    //
+    // Cas des tâches dans l'historique
+    //
+    task.jour.isBuilt     || task.jour.build()
+    task.groupday.isBuilt || task.groupday.build()
+  } else {
+    //
+    // Cas des tâches hors historique
+    //
   }
-  this.ensureGroupOfTaskExists(task)
   this.placeElementInHistorique(task)
-}
-
-/**
- * Méthode qui s'assure que le jour +jour+ ("AA/MM/JJ") existe bien
- * dans le container historique
- */
-ensureJourOfTaskExiste(task){
-  const jour = task.date
-  if ( DGet(`div.jour[data-jour="${jour}"]`, this.taskContainer) ){
-    // console.log("Le jour %s existe déjà", jour )
-    task.jour = Jour.getByJour(jour)
-  } else {
-    // console.log("Ajout du JOUR ", jour)
-    const ijour = new Jour(jour)
-    task.jour = ijour
-    this.placeElementInHistorique(ijour)
-  }
-}
-
-/**
- * Méthode qui s'assure que le groupe de la tâche +task+ existe bien
- * dans le container historique
- * 
- */
-ensureGroupOfTaskExists(task){
-  // console.log("Assurer le groupe de la tâche : ", task)
-  if (DGet(`div.group[data-jour="${task.date}"][data-group="${task.group}"]`, this.taskContainer)){
-    // console.log("Le groupe '%s' existe pour le jour %s", task.group, task.date)
-    task.groupday = GroupDay.get(task.date, task.group)
-  } else {
-    const igroupday = new GroupDay(task.group, task.jour)
-    task.groupday = igroupday
-    this.placeElementInHistorique(igroupday)
-    // console.log("Ajout du groupe-jour", igroupday)
-  }
 }
 
 /**
@@ -154,6 +142,7 @@ placeElementInHistorique(foo){
 }
 
 getAllDivTasksOrDays(){
+  console.log("obj (container id %i) : ", this.id, this.obj)
   return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .jour')
 }
 getAllDivTasks(){

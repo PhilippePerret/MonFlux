@@ -6,12 +6,15 @@
  * 
  */
 class Jour {
+
+/**
+ * @return l'instance {Jour} du jour de date +yymmdd+ en 
+ * l'instanciant si elle n'existe pas
+ */
 static getByJour(yymmdd){
-  return this.items[yymmdd]
-}
-static addJour(jour){
   this.items || (this.items = {});
-  Object.assign(this.items, {[jour.yymmdd]: jour})
+  this.items[yymmdd] || Object.assign(this.items, {[yymmdd]: new Jour(yymmdd)})
+  return this.items[yymmdd]
 }
 
 static get todayAsYYMMDD(){
@@ -28,10 +31,9 @@ static getTodayAsYYMMDD(){
  */
 
 constructor(yymmdd){
-  this.yymmdd = yymmdd
-  this.constructor.addJour(this)
+  this.yymmdd   = yymmdd
+  this.isBuilt  = false
 }
-
 
 /**
  * Ajoute un "groupe-jour" (GroupDay) au jour 
@@ -50,8 +52,9 @@ addGroup(groupName){
 
 
 build(){
-  const o = DCreate('DIV', {class:'jour', 'data-jour':this.yymmdd, 'data-time': this.time, text:this.formated})
-  return o
+  this.obj = DCreate('DIV', {class:'jour', 'data-jour':this.yymmdd, 'data-time': this.time, text:this.formated})
+  TaskContainer.historique.placeElementInHistorique(this)
+  this.isBuilt = true
 }
 
 /**
@@ -61,9 +64,6 @@ get formated(){
   return `${this.jourName} ${this.jour} ${this.moisName} ${this.annee}`
 }
 
-get obj(){
-  return this._obj || (this._obj = this.build())
-}
 get date(){
   return this._date || (this._date = this.getDate() )
 }

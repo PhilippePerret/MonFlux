@@ -11,36 +11,30 @@
 
 class GroupDay {
 
-static get(yymmdd, groupName){
-  return this.items[`${yymmdd}::${groupName}`]
-}
-static addItem(item){
+static get(/* {String} */ groupName, /* {Jour} */ jour ){
   if ( ! this.items ) {
     this.groupNames = {}
     this.items      = {}
   }
-  Object.assign(this.items, {[`${item.jour.yymmdd}::${item.groupName}`]: item})
-  if ( ! this.groupNames[item.groupName] ){
-    Object.assign(this.groupNames, {[item.groupName]: []})
-  }
-  this.groupNames[item.groupName].push(item)
+  const key = `${jour.date}::${groupName}`
+  this.items[key] || Object.assign(this.items, {[key]: new GroupDay(groupName, jour)})
+  return this.items[key]
 }
 
 constructor(groupName, jour){
   this.groupName  = groupName // {String}
   this.jour       = jour ;    // {Jour}
   this.indexGroupInDay = jour.addGroup(groupName)
-  this.constructor.addItem(this)
+
+  this.isBuilt = false
 }
 
 build(){
-  const o = DCreate('DIV', {class:'group', 'data-jour':this.jour.date, 'data-group':this.groupName, 'data-time': this.time, text:this.groupName})
-  return o
+  this.obj = DCreate('DIV', {class:'group', 'data-jour':this.jour.date, 'data-group':this.groupName, 'data-time': this.time, text:this.groupName})
+  TaskContainer.historique.placeElementInHistorique(this)
+  this.isBuilt = true
 }
 
-get obj(){
-  return this._obj || (this._obj = this.build())
-}
 get time(){return this._time || (this._time = this.getTime())}
 get date(){return this._date || (this._date = this.jour.date) }
 

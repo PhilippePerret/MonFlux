@@ -53,6 +53,26 @@ addInContainer(){
 }
 
 /**
+ * Démarrage : si c'est une tâche dans l'historique et qu'elle n'a pas été
+ * exécutée, on met son jour à aujourd'hui
+ * 
+ * Attention : ici, la tâche n'est pas encore affichée
+ */
+setTodayIfUndone(){
+  if ( this.state < 2 && this.container_id == 2){
+    this._date = this.data['date'] = Jour.todayAsYYMMDD
+  }
+}
+/**
+ * Démarrage : si l'ID est plus grand que le dernier identifiant
+ * trouvé, on l'actualise
+**/
+defineLastTaskId(){
+  var lid = parseInt(this.id,10);
+  if ( lid > Tasks.lastId ) Tasks.lastId = lid ;
+}
+
+/**
  * Construction et surveillance de la tâche
  */
 build_and_observe(){
@@ -127,6 +147,17 @@ onKillTask(e){
 /**
  * --- Propriétés volatiles ---
  **/
+
+/** 
+ * Le GroupDay de la tâche. Ne sert que pour l'historique, où le
+ * le "group-day" est la marque du groupe de la tâche dans un 
+ * jour particulier.
+ * Ce group-day n'existe pas pour les tâches hors de l'historique
+ */
+get groupday(){
+  return this._groupday || (this._groupday = GroupDay.get(this.group, this.jour))
+}
+
 // Retourne true si c'est une tâche dans l'historique
 get isHistorique(){
   return this.container_id == 2
@@ -137,7 +168,7 @@ get isDone(){
 }
 
 // Le jour ({Jour}) de la tâche
-get jour() { return this._jour }
+get jour() { return this._jour || Jour.getByJour(this.date)}
 set jour(v){ this._jour = v }
 // La date comme date
 get dateAsDate(){

@@ -1,1 +1,1 @@
-ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0008\",\"state\":0,\"container\":0,\"date\":\"21/10/21\",\"content\":\"Une nouvelle sans échéances\",\"group\":\"\",\"tasks\":[],\"files\":[]}}" 2>&1

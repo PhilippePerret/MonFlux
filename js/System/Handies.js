@@ -51,7 +51,14 @@ function focusIn(element) {
 // Méthode à utiliser en catch des promesses
 function onError(err){
   console.error(err)
-  erreur("Une erreur est survenue, consulter la console.")
+  omsg = DGet('#message')
+  omsg.innerHTML = err
+  omsg.className = 'error'
+  return false
+}
+
+function erreur(err){
+  return onError(err)
 }
 
 /**
