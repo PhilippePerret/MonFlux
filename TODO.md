@@ -1,8 +1,7 @@
 # TODO list
 
-* Peupler les groupes dans l'éditeur de tâche
-* Mettre dans les groupes quand ce n'est pas l'historique
-* Traiter la destruction de tâche
+* Pouvoir ajouter une catégorie (groupe) <= mot tout seul sur une ligne 
+* Traiter le texte intelligent de la tâche
 
 
 ### Principes

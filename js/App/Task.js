@@ -22,6 +22,15 @@ save(){
   })
 }
 
+destroy(){
+  ajax({script:'destroy_task.rb', task_id: this.id})
+  .then(ret => {
+    this.obj.remove()
+    console.info("Tâche détruite", this)
+  })
+  .catch(onError)
+}
+
 edit(){
   TaskEditor.edit(this)
 }
@@ -149,7 +158,7 @@ onToggleDone(e){
 
 // Quand on clique sur le bouton "x" de la tâche, pour la supprimer
 onKillTask(e){
-  console.info("Je dois détruire la tâche (je ne sais pas encore le faire")
+  this.destroy()
   return stopEvent(e)
 }
 
