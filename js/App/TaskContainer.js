@@ -106,12 +106,14 @@ addTask(task){
     //
     task.jour.isBuilt     || task.jour.build()
     task.groupday.isBuilt || task.groupday.build()
+    this.placeElementInHistorique(task)
   } else {
     //
     // Cas des tâches hors historique
     //
+    task.igroup.isBuiltIn(this) || task.igroup.buildIn(this)
+    this.placeElementInContainer(task)
   }
-  this.placeElementInHistorique(task)
 }
 
 /**
@@ -121,7 +123,6 @@ addTask(task){
  */
 placeElementInHistorique(foo){
   // console.log("Time de la CHOSE à placer :", foo.time)
-
   var placed = false
   this.getAllDivTasksOrDays().forEach( div => {
     if ( placed ) return ; // pour accélérer 
@@ -138,12 +139,40 @@ placeElementInHistorique(foo){
     // console.log("CHOSE placée au bout")
     this.taskContainer.appendChild(foo.obj)
   }
+}
 
+/**
+ * Pour placer la marque du groupe ou la tâche dans les containers
+ * autres que l'historique
+ * 
+ */
+placeElementInContainer(foo){
+  var placed = false
+  if ( foo.isMarkGroup ) {
+    // Rien à faire, il sera ajouté à la fin
+  } else {
+    this.getAllDivTasksOrGroup().forEach( div => {
+      if ( placed ) return ; // pour accélérer 
+      const divgroup = div.getAttribute('data-group')
+      if (foo.group == divgroup) {
+        this.taskContainer.insertBefore(foo.obj, div.nextSibling)
+        placed = true
+      }
+    })
+  }
+
+  if ( !placed ) {
+    // console.log("CHOSE placée au bout")
+    this.taskContainer.appendChild(foo.obj)
+  }
 }
 
 getAllDivTasksOrDays(){
   console.log("obj (container id %i) : ", this.id, this.obj)
   return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .jour')
+}
+getAllDivTasksOrGroup(){
+  return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .group')
 }
 getAllDivTasks(){
   return this.obj.querySelectorAll('div.tasks > .task')

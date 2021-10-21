@@ -156,6 +156,16 @@ onKillTask(e){
  * --- Propriétés volatiles ---
  **/
 
+// Retourne true si c'est une tâche dans l'historique
+get isHistorique(){
+  return this.container_id == 2
+}
+// Retourne true si la tâche est faite
+get isDone(){
+  return this.state == 2
+}
+
+
 /** 
  * Le GroupDay de la tâche. Ne sert que pour l'historique, où le
  * le "group-day" est la marque du groupe de la tâche dans un 
@@ -166,13 +176,11 @@ get groupday(){
   return this._groupday || (this._groupday = GroupDay.get(this.group, this.jour))
 }
 
-// Retourne true si c'est une tâche dans l'historique
-get isHistorique(){
-  return this.container_id == 2
-}
-// Retourne true si la tâche est faite
-get isDone(){
-  return this.state == 2
+/**
+ * L'instance {Group} du groupe de la tâche, tout container confondu
+ */
+get igroup(){
+  return this._igroup || (this._igroup = Group.get(this.group))
 }
 
 // Le jour ({Jour}) de la tâche
@@ -206,6 +214,7 @@ get contentField(){
 
 get id(){return this._id || (this._id = this.data['id']) }
 set id(v){this._id = this.data['id'] = v}
+// Le nom du groupe
 get group(){return this._group || (this._group = (this.data['group']||'divers') ) }
 set group(v){this._group = this.data['group'] = v}
 get files(){return this._files || (this._files = (this.data['files']||[]) ) }

@@ -1,1 +1,1 @@
-ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0009\",\"state\":0,\"container\":1,\"date\":\"21/10/21\",\"content\":\"Nouveau tâche\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[]}}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1

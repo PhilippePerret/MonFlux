@@ -42,6 +42,27 @@ constructor(name){
   this.name = name
 }
 
+get isMarkGroup(){return true}
+
 get asOption(){return DCreate('OPTION', {value:this.name, text:this.name})}
+
+
+/**
+ * @return true si le groupe est construit (juste sa marque) dans 
+ * le container {TaskContainer} +container+
+ */
+isBuiltIn(container){
+  return !!DGet(`div.group[data-group="${this.name}"]`, container.obj)
+}
+
+/**
+ * Construit la marque du container dans le container +container+
+ * 
+ * Note : utile seulement pour les container hors historique
+ */
+buildIn(container){
+  this.obj = DCreate('DIV', {class:'group', 'data-group': this.name, text:this.name})
+  container.placeElementInContainer(this)
+}
 
 }
