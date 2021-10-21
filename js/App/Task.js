@@ -41,10 +41,62 @@ edit(){
  * 
  */
 update(newData){
+  newData = this.checkNewContent(newData)
+  // console.log("newData après vérification content :", newData)
+  const groupHasChanged = newData.group != this.group
+  
+  //
+  // Pour savoir s'il y a un changement
+  //
+  var hasChanged = false
   Object.keys(newData).forEach(key => {
+    if ( this[key] != newData[key] ) hasChanged = true ;
     this[key] = newData[key]
   })
-  this.save()
+  hasChanged && this.save()
+
+  //
+  // Si le groupe a changé, il faut 1) voir si c'est un nouveau
+  // groupe et 2) placer la tâche dans ce nouveau groupe
+  //
+  groupHasChanged && this.onGroupChanged()
+}
+
+/**
+ * Méthode qui, après modification des données (et avant enregistre-
+ * ment) vérifie le contenu pour voir si un nom de groupe n'a pas
+ * été utilisé (mot seul en première ligne)
+ *
+ */ 
+checkNewContent(newData){
+  var newContent = newData.content
+  if ( newContent != this.content ) {
+    console.log("Contenu a changé")
+    var lines = newContent.split("\n")
+    if ( lines.length > 1 ) {
+      const firstLine = lines.shift().trim()
+      const mots = firstLine.split(' ')
+      if ( mots.length == 1 ) { //=> Groupe (catégorie)
+        //
+        // Changement de contenu et de groupe
+        //
+        newData.group   = firstLine;
+        newData.content = lines.join("\n")
+      }
+    }
+  }
+  return newData;
+}
+
+/**
+ * Méthode appelée quand il y a changement de grouped
+ * 
+ * Note : ça peut être un nouveau groupe
+ */
+onGroupChanged(){
+  this._igroup    = null
+  this._groupday  = null
+  this.addInContainer()
 }
 
 /**
@@ -109,8 +161,8 @@ build(){
   toolbox.appendChild(o)
   obj.appendChild(toolbox)
   
-  o = DCreate('SPAN', {class:'content', text:this.content})
-  obj.appendChild(o)
+  this.contentField = DCreate('SPAN', {class:'content', text:this.content})
+  obj.appendChild(this.contentField)
   this._obj = obj
 }
 
@@ -118,6 +170,7 @@ observe(){
   this.setEtat()
   this.doneButton.addEventListener('click', this.onToggleDone.bind(this))
   this.killButton.addEventListener('click', this.onKillTask.bind(this))
+  this.contentField.addEventListener('click', this.onClickContent.bind(this))
 }
 
 /**
@@ -149,6 +202,10 @@ get killButton(){
  * --- Méthode d'observation des évènement ---
 **/
 
+onClickContent(e){
+  this.edit()
+  return stopEvent(e)
+}
 
 onToggleDone(e){
   this.state = this.isDone ? 1 : 2
@@ -213,10 +270,6 @@ get container(){
 get domId(){
   return this._domid || (this._domid = `task-${this.id}`)
 }
-// Le champ contenant le texte de la tâche
-get contentField(){
-    return this._contentfield || (this._contentfield = DGet('.content', this.obj))
-  }
 
 /**
  * --- Propriété enregistrées ---

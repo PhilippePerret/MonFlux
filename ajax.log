@@ -1,1 +1,1 @@
-ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_id\":\"0009\"}" 2>&1Destruction OK de la tâche #0009

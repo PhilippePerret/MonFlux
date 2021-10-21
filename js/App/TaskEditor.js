@@ -47,7 +47,16 @@ setValues(){
   this.menuDays.value     = this.task.date
 }
 
-open(){this.obj.classList.remove('hidden')}
+open(){
+  //
+  // Si la liste des groupes a changé, il faut actualiser le menu
+  //
+  if ( this.currentGroupCount != Group.list.length ) this.peupleGroupMenu()
+  //
+  // On affiche la boite
+  //
+  this.obj.classList.remove('hidden')
+}
 close(){this.obj.classList.add('hidden')}
 
 /**
@@ -130,7 +139,9 @@ observe(){
 }
 
 peupleGroupMenu(){
+  this.menuGroupes.innerHTML = ''
   Group.list.forEach(group => this.menuGroupes.appendChild(group.asOption))
+  this.currentGroupCount = Group.list.length
 }
 
 peupleDayMenu(){

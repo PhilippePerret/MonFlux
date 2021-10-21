@@ -1,6 +1,5 @@
 # TODO list
 
-* Pouvoir ajouter une catégorie (groupe) <= mot tout seul sur une ligne 
 * Traiter le texte intelligent de la tâche
 
 
