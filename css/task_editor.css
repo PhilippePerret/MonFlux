@@ -11,6 +11,7 @@ div#task_editor textarea {
   margin-left: 12px;
   margin-right: 12px;
   width: 92%;
+  height: 100px;
   resize: none;
 }
 

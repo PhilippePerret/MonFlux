@@ -15,7 +15,6 @@ data['type']    Description
 
 
 =end
-require 'json'
 require_relative '../lib/Tasks'
 
 # Les données transmises

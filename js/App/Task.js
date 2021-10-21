@@ -161,7 +161,7 @@ build(){
   toolbox.appendChild(o)
   obj.appendChild(toolbox)
   
-  this.contentField = DCreate('SPAN', {class:'content', text:this.content})
+  this.contentField = DCreate('SPAN', {class:'content', text:this.formatedContent})
   obj.appendChild(this.contentField)
   this._obj = obj
 }
@@ -171,7 +171,20 @@ observe(){
   this.doneButton.addEventListener('click', this.onToggleDone.bind(this))
   this.killButton.addEventListener('click', this.onKillTask.bind(this))
   this.contentField.addEventListener('click', this.onClickContent.bind(this))
+  this.observeText()
 }
+
+updateContent(){
+  this.contentField.innerHTML = this.formatedContent
+  this.observeText()
+}
+
+observeText(){
+  this.obj.querySelectorAll('button.link_in_content').forEach(btn => {
+    btn.addEventListener('click', LinkOpener.open.bind(LinkOpener, btn))
+  })
+}
+
 
 /**
  * Définit l'état visuellement (fait/à faire)
@@ -199,7 +212,7 @@ get killButton(){
 
 
 /**
- * --- Méthode d'observation des évènement ---
+ * --- Méthode d'observation des évènements ---
 **/
 
 onClickContent(e){
@@ -217,6 +230,24 @@ onToggleDone(e){
 onKillTask(e){
   this.destroy()
   return stopEvent(e)
+}
+
+/**
+ * --- Méthodes d'helper ---
+ * 
+ */
+
+// @return le contenu formaté
+get formatedContent(){
+  const REG_CROCHET_CONTENT = /\[(.*?)\]\((.*?)\)/g
+  var c = String(this.content)
+  c = c.replace(REG_CROCHET_CONTENT, this.replaceCrochetsInContent.bind(this))
+  c = c.replace(/\n/g,'<br />')
+  return c
+}
+replaceCrochetsInContent(tout, libelle, lien){
+  console.log("Tout = '%s', libelle = '%s', lien = '%s'", tout, libelle, lien)
+  return `<button class="link_in_content" data-link="${lien}">${libelle}</button>`
 }
 
 /**
@@ -285,7 +316,7 @@ set files(v){this._files = this.data['files'] = v}
 get content(){return this._content || (this._content = this.data['content'])}
 set content(v){
   this._content = this.data['content'] = v
-  this.contentField.innerHTML = v
+  this.updateContent()
 }
 get date(){return this._date || (this._date = this.data['date'])}
 set date(v){

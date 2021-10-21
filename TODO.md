@@ -1,6 +1,22 @@
 # TODO list
 
-* Traiter le texte intelligent de la tâche
+### BUGS
+
+* Quand on marque qu'une tâche de l'historique est faite, il faut qu'elle reste dans l'historique
+  - de façon générale, il faut même qu'une tâche marquée faite hors de l'historique s'ajoute à l'historique à la date du jour
+* Quand on édite une tâche, le menu du groupe ne semble pas se régler.
+  - même quand on le règle, il semblerait que la tâche soit mal reclassée (en tout cas pour l'historique)
+
+### PROCHES FEATURES
+
+* Traiter les liens qui doivent s'ouvrir dans une nouvelle fenêtre de navigateur
+  (pour le moment, le lien ne fait que mettre la tâche en édition — peut-être, dans l'observation du content, faut-il mettre un traitement qui remplace un lien mis explicitement — <a> — en bouton ouvrant normalement
+  ou le remplacer simplement par un truc entre croche et parenthèse et mettre une alerte pour dire de faire directement comme ça
+  Note : c'est le protocole 'http' qui permet de savoir que c'est une URL — => traitement dans LinkOpener)
+* Focusser dans le champ de texte quand on édite la tâche
+* Pouvoir ajouter une tâche à une autre
+  -> attention, le traitement du placement ne sera plus le même
+  ? Est-ce que le container va changer ?
 
 
 ### Principes
@@ -11,6 +27,7 @@
 
 ### Features
 
+* Production du fichier historique du mois en fin de mois
 * Une tâche peut avoir une liste de tâche
 * Pouvoir ouvrir n'importe quel fichier ou quel dossier
 * Pouvoir lancer n'importe quelle application

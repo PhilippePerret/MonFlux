@@ -61,6 +61,13 @@ function erreur(err){
   return onError(err)
 }
 
+function message(msg){
+  var omsg = DGet('#message')
+  omsg.innerHTML = msg
+  omsg.className = 'notice'
+  return false
+}
+
 /**
 * Pour ajouter les pixels aux valeurs numériques (*) :
 *

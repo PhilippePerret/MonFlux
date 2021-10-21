@@ -17,6 +17,12 @@ def save
   # à faire à l'état faite, on doit la passer du dossier current au
   # dossier archives
   #
+  # Non, en fait, maintenant, quelle que soit la tâche, si elle est
+  # marquée faite, elle rejoint l'historique avec la date du jour.
+  #
+  if data['state'] > 1 && data['container'] != 2
+    move_in_historique
+  end
   File.delete(path_in_current) if File.exists?(path_in_current)
   File.delete(path) if File.exist?(path)
   File.open(path,'wb'){|f| f.write(data.to_json)}
@@ -24,6 +30,13 @@ rescue Exception => e
   log("Impossible d'enregistrer les données : #{e.message}")
 else
   log("Nouvelles données bien enregistrées : #{data.inspect}")
+end
+
+##
+# "Déplace" la tâche dans l'historique
+#
+def move_in_historique
+  data['container'] = 2
 end
 
 ##
@@ -56,10 +69,7 @@ def folder
   @folder ||= File.join(TASKS_FOLDER, folder_name)
 end
 def folder_name
-  case data['state']
-  when 0, 1 then 'current'
-  else 'xarchives'
-  end
+  'current'
 end
 
 end #/Task
