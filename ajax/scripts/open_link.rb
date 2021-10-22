@@ -9,6 +9,9 @@
 require_relative '../lib/_required'
 retour = {error:nil, message:[], path: nil}
 
+# Pour ouvrir un dossier
+SUBLIME_TEXT = "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl"
+
 begin
 
   link = JSON.parse(ARGV[0])['link']
@@ -21,6 +24,12 @@ begin
     # Cas d'un lien HTML
     #
     `open -a Safari #{link}`
+  
+  elsif link.start_with?('ide')
+    #
+    # Cas de l'ouverture d'un dossier de code
+    #
+    `#{SUBLIME_TEXT} "#{link[4..-1]}"`
 
   elsif File.exist?(link)
     if File.directory?(link)
