@@ -84,3 +84,27 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 22 - 10:02:14 ---   * Fabrication du fichier Markdown de l'historique
 2021 10 22 - 10:02:14 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
 2021 10 22 - 10:02:21 --- = historique 2021-09 construit avec succès
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:04:03 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 10:04:03 --- => Construction historique 2021-09
+2021 10 22 - 10:04:03 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 10:04:03 --- Destruction OK de la tâche #0023
+2021 10 22 - 10:04:03 --- Destruction OK de la tâche #0024
+2021 10 22 - 10:04:03 --- Destruction OK de la tâche #0021
+2021 10 22 - 10:04:03 --- Destruction OK de la tâche #0006
+2021 10 22 - 10:04:03 --- Destruction OK de la tâche #0005
+2021 10 22 - 10:04:03 --- Destruction OK de la tâche #0022
+2021 10 22 - 10:04:03 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+2021 10 22 - 10:04:11 --- = historique 2021-09 construit avec succès
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:05:33 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:05:39 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:05:45 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:05:51 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:05:56 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:06:03 --- = fichier historique mois précédent existe

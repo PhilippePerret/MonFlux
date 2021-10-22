@@ -99,7 +99,7 @@ def build_histo_prev_month
   # 
   # On peut détruire les tâches qui ont été enregistrées
   #
-  # taches.each do |tache| tache.destroy(deep = true) end
+  taches.each do |tache| tache.destroy(deep = true) end
 
 
   if conv_to_pdf 

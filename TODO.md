@@ -2,8 +2,6 @@
 
 ### BUGS
 
-* Mettre la croix rouge (de destruction de tâche) plus petite
-
 ### PROCHES FEATURES
 
 * Traiter les liens qui doivent s'ouvrir dans une nouvelle fenêtre de navigateur
@@ -18,13 +16,9 @@
 
 ### Principes
 
-* On doit pouvoir entrer les informations de façon simple, en s'inspirant de l'écriture Markdown. Par exemple, pour ouvrir un dossier ou un lien, il suffit de faire `[mon lien](path/to/mon/fichier)` et ça transforme aussitôt en bouton cliquable.
-* L'élément de base du programme est la tâche : Task
-
 
 ### Features
 
-* Production du fichier historique du mois en fin de mois
 * Une tâche peut avoir une liste de tâche
 * Pouvoir ouvrir n'importe quel fichier ou quel dossier
 * Pouvoir lancer n'importe quelle application

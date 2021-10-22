@@ -63,7 +63,7 @@ onClickAddButton(e){
 }
 
 dimensionne(){
-  this.obj.style.height = px(window.innerHeight - 40)
+  this.obj.style.height = px(window.innerHeight - 3)
 }
 
 prepare(){
