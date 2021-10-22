@@ -118,3 +118,15 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"ide:/Users/philippeperret/Sites/Atelier_Icare/Icare_2020\"}" 2>&1
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"ide:/Users/philippeperret/Sites/Atelier_Icare/Icare_2020\"}" 2>&1
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"ide:/Users/philippeperret/Sites/Atelier_Icare/Icare_2020\"}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:25:53 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:25:59 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0002\",\"date\":\"21/10/22\",\"group\":\"ICARE\",\"content\":\"Pour ouvrir le [dossier des icariens](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Icariens-ON) ou le [fichier de commentaires](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv)\",\"container\":2,\"state\":1,\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 22 - 10:26:09 --- Nouvelles données bien enregistrées : {"id"=>"0002", "date"=>"21/10/21", "group"=>"ICARE", "content"=>"Pour ouvrir le [dossier des icariens](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Icariens-ON) ou le [fichier de commentaires](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv)", "container"=>2, "state"=>1, "tasks"=>[], "files"=>[]}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:27:22 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0002\",\"date\":\"21/10/22\",\"group\":\"ICARE\",\"content\":\"Pour ouvrir le [dossier des icariens](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Icariens-ON) ou le [fichier de commentaires](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv)\",\"container\":2,\"state\":1,\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 22 - 10:32:57 --- Nouvelles données bien enregistrées : {"id"=>"0002", "date"=>"21/10/21", "group"=>"ICARE", "content"=>"Pour ouvrir le [dossier des icariens](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Icariens-ON) ou le [fichier de commentaires](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv)", "container"=>2, "state"=>1, "tasks"=>[], "files"=>[]}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0015\",\"state\":2,\"container\":2,\"date\":\"\",\"content\":\"Travail sur MonFlux\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 22 - 10:33:02 --- Nouvelles données bien enregistrées : {"id"=>"0015", "state"=>2, "container"=>2, "date"=>"21/10/21", "content"=>"Travail sur MonFlux", "group"=>"MonFlux", "tasks"=>[], "files"=>[]}

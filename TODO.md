@@ -4,7 +4,7 @@
 
 ### PROCHES FEATURES
 
-* Focusser dans le champ de texte quand on édite la tâche
+* Supprimer la propriété :files
 * Pouvoir ajouter une tâche à une autre
   -> attention, le traitement du placement ne sera plus le même
   ? Est-ce que le container va changer ?

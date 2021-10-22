@@ -10,6 +10,7 @@ edit(task){
   this.task = task
   this.positionne()
   this.setValues()
+  this.focus()
 }
 
 updateTask(){
@@ -59,6 +60,15 @@ open(){
 }
 close(){this.obj.classList.add('hidden')}
 
+
+/**
+ * Pour se mettre dans le champ de texte à l'ouverture
+ * 
+ */
+focus(){
+  this.contentField.focus()
+}
+
 /**
  * --- events methods ---
  * 
@@ -79,8 +89,8 @@ onClickCancel(e){
  */
 positionne(){
   const rect = this.task.obj.getBoundingClientRect()
-  this.obj.style.top  = px(rect.top)
-  this.obj.style.left = px(rect.left)
+  this.obj.style.top  = px(rect.top - 10)
+  this.obj.style.left = px(rect.left - 10)
   this.open()
 }
 
