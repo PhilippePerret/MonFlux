@@ -6,10 +6,24 @@ class Task
 
 attr_reader :data
 
+##
+# Instanciation
+#
+# Attention, +data+ peut ne contenir que :id. Dans ce cas, on 
+# charge les données depuis le fichier
+#
 def initialize data
-  @data = data
+  if data.key?(:content)
+    @data = data
+  else
+    @id = data['id']||data[:id]
+    load
+  end
 end
 
+def load
+  @data = JSON.parse(File.read(path_in_current).force_encoding('utf-8'))
+end
 
 def save
   #
@@ -42,9 +56,25 @@ end
 ##
 # Détruit complètement la tâche
 #
-def destroy
+# @param deep   Si true, on doit détruire aussi les tâches enfants
+#
+def destroy(deep = false)
+
+  #
+  # Si +deep+ est true, on doit aussi détruire les tâches enfants
+  #
+  if deep 
+    tasks.each do |task_id|
+      Task.new(task_id).destroy(deep = true)
+    end
+  end
+
+  #
+  # On peut détruire la tâche partout où elle se trouve
+  #
   File.delete(path_in_current)    if File.exists?(path_in_current)
   File.delete(path_in_xarchives)  if File.exist?(path_in_xarchives)
+  
 rescue Exception => e
   log("Impossible de détruire la tâche ##{id} : #{e.message}")
 else
@@ -52,6 +82,27 @@ else
 end
 
 def id; @id ||= data['id'] end
+def date; @date ||= data['date'] end
+def state; @state ||= data['state'] end
+def group; @group ||= data['group'] end
+def content; @content ||= data['content'] end
+def tasks; @tasks ||= data['tasks']||[] end
+def files; @files ||= data['files']||[] end
+
+def done?
+  state > 1
+end
+
+##
+# Sous-tâches de la tâche (instances)
+#
+def taches
+  @taches ||= []
+end
+def add_task(tache)
+  @taches ||= []
+  @taches << tache
+end
 
 def filename
   @filename ||= "#{id}.json"

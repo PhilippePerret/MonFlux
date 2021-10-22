@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'json'
 require_relative '_required'
+require_relative 'Task'
 
 class Tasks
 class << self
@@ -18,6 +19,44 @@ class << self
     end
   end
 
+  ##
+  # Renvoie la liste de toutes les instances
+  #
+  def all_instances
+    @all_instances ||= begin
+      get_all.collect do |dtache| Task.new(dtache) end
+    end
+  end
+
+  ##
+  # Renvoie toutes les instances mais avec les appartenances
+  #
+  def all_instances_with_ownership
+    @all_instances_with_ownership ||= begin
+      
+      #
+      # On commence par faire une table avec toutes les instances
+      #
+      table = {}
+      all_instances.each do |tache|
+        table.merge!(tache.id => tache)
+      end
+
+      #
+      # On peut maintenant traiter les appartenance, en supprimant
+      # chaque fois la tâche de la table principale
+      #
+      all_instances.each do |tache|
+        tache.tasks.each do |stache_id|
+          tache.add_task(table[stache_id])
+          table.delete(stache_id)
+        end
+      end
+
+      table.values
+    end
+  end
+
 
   ##
   # Dossier contenant les tâches courantes
@@ -27,6 +66,7 @@ class << self
 
   ##
   # Dossier contenant les tâches en archive
+  # OBSOLÈTE
   def folder_archives
     @folder_archives ||= File.join(TASKS_FOLDER,'xarchives')
   end

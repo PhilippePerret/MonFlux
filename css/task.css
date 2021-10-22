@@ -56,6 +56,10 @@ section.task-container div.task div.tools:hover {
 section.task-container div.task div.tools a {
   margin-left: 8px;
 }
+/* Le bouton pour détruire la tâche (plus petit) */
+section.task-container div.task div.tools a.kill_btn {
+  font-size: 0.5em;
+}
 
 
 

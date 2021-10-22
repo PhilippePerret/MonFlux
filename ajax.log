@@ -1,1 +1,86 @@
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:24:39 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:24:39 --- => Construction historique 2021-09
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:25:52 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:25:52 --- => Construction historique 2021-09
+2021 10 22 - 09:25:52 ---   * Fabrication du fichier Markdown de l'historique
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:26:34 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:26:34 --- => Construction historique 2021-09
+2021 10 22 - 09:26:34 ---   * Fabrication du fichier Markdown de l'historique
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:27:02 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:27:02 --- => Construction historique 2021-09
+2021 10 22 - 09:27:02 ---   * Fabrication du fichier Markdown de l'historique
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:27:46 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:27:46 --- => Construction historique 2021-09
+2021 10 22 - 09:27:46 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:27:50 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:28:25 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:28:25 --- => Construction historique 2021-09
+2021 10 22 - 09:28:25 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:28:25 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:30:16 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:30:16 --- => Construction historique 2021-09
+2021 10 22 - 09:30:16 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:30:16 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:39:00 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:39:00 --- => Construction historique 2021-09
+2021 10 22 - 09:39:00 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:39:00 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:40:10 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:40:10 --- => Construction historique 2021-09
+2021 10 22 - 09:40:10 ---   * Fabrication du fichier Markdown de l'historique
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:40:34 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:40:34 --- => Construction historique 2021-09
+2021 10 22 - 09:40:34 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:40:34 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:41:12 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:41:12 --- => Construction historique 2021-09
+2021 10 22 - 09:41:12 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:41:13 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:41:54 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:41:54 --- => Construction historique 2021-09
+2021 10 22 - 09:41:54 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:41:54 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:43:52 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:43:52 --- => Construction historique 2021-09
+2021 10 22 - 09:43:52 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:43:52 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:48:43 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:48:43 --- => Construction historique 2021-09
+2021 10 22 - 09:48:43 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:48:43 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:54:47 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:54:47 --- => Construction historique 2021-09
+2021 10 22 - 09:54:47 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:54:48 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 09:57:26 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 09:57:26 --- => Construction historique 2021-09
+2021 10 22 - 09:57:26 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 09:57:26 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+2021 10 22 - 09:58:01 --- = historique 2021-09 construit avec succès
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:00:22 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 10:00:22 --- => Construction historique 2021-09
+2021 10 22 - 10:00:22 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 10:00:22 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:02:14 --- = fichier historique 2021-09 n'existe pas
+2021 10 22 - 10:02:14 --- => Construction historique 2021-09
+2021 10 22 - 10:02:14 ---   * Fabrication du fichier Markdown de l'historique
+2021 10 22 - 10:02:14 --- -> MdToPdf.convert avec /Users/philippeperret/Sites/MonFlux/data/historiques_travail/2021-09.md
+2021 10 22 - 10:02:21 --- = historique 2021-09 construit avec succès

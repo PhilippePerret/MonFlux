@@ -8,8 +8,8 @@ $data   = str_replace('"', '\"', $data);
 $request = "ruby " . $dossier_courant . '/ajax/scripts/' . $script . ' "' . $data . '" 2>&1';
 
 $filename = 'ajax.log';
-$filehandle = fopen($filename,'w');
-fwrite($filehandle, $request);
+$filehandle = fopen($filename,'a');
+fwrite($filehandle, $request . "\n");
 fclose($filehandle);
 
 
