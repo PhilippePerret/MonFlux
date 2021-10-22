@@ -130,3 +130,13 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\
 2021 10 22 - 10:32:57 --- Nouvelles données bien enregistrées : {"id"=>"0002", "date"=>"21/10/21", "group"=>"ICARE", "content"=>"Pour ouvrir le [dossier des icariens](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Icariens-ON) ou le [fichier de commentaires](/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv)", "container"=>2, "state"=>1, "tasks"=>[], "files"=>[]}
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0015\",\"state\":2,\"container\":2,\"date\":\"\",\"content\":\"Travail sur MonFlux\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[]}}" 2>&1
 2021 10 22 - 10:33:02 --- Nouvelles données bien enregistrées : {"id"=>"0015", "state"=>2, "container"=>2, "date"=>"21/10/21", "content"=>"Travail sur MonFlux", "group"=>"MonFlux", "tasks"=>[], "files"=>[]}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:36:47 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:36:55 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:39:02 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:39:26 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 22 - 10:40:11 --- = fichier historique mois précédent existe

@@ -26,15 +26,6 @@ getValues(){
       content:  this.contentField.value.trim()
     , date:     this.menuDays.value
     , group:    this.menuGroups.value
-    , files:    this.getFiles()
-  }
-}
-getFiles(){
-  var files = this.filesField.value.trim()
-  if ( files == '' ) {
-    return []
-  } else {
-    return files.split("\n")
   }
 }
 
@@ -43,7 +34,6 @@ getFiles(){
  */
 setValues(){
   this.contentField.value = this.task.content
-  this.filesField.value   = this.task.files.join("\n")
   this.menuGroups.value   = this.task.group
   this.menuDays.value     = this.task.date
 }
@@ -122,11 +112,6 @@ build(){
   infos.appendChild(this.menuDays)
 
   o.appendChild(infos)
-
-  // Pour mettre les fichiers
-  this.filesField = DCreate('TEXTAREA', {id:'task_editor-files', placeholder:'Fichiers/dossiers (séparés par retour)'})
-  o.appendChild(this.filesField)
-
 
 
   const tools = DCreate('DIV', {class:'tools'})

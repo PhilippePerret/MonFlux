@@ -310,8 +310,6 @@ set id(v){this._id = this.data['id'] = v}
 // Le nom du groupe
 get group(){return this._group || (this._group = (this.data['group']||'divers') ) }
 set group(v){this._group = this.data['group'] = v}
-get files(){return this._files || (this._files = (this.data['files']||[]) ) }
-set files(v){this._files = this.data['files'] = v}
 get content(){return this._content || (this._content = this.data['content'])}
 set content(v){
   this._content = this.data['content'] = v
