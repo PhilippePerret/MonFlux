@@ -107,7 +107,7 @@ section.task-container div.tasks div.group {
 /* Un lien à ouvrir, dans le texte */
 button.link_in_content {
   all: unset;
-  color: orange;
+  color: rgb(16, 112, 131);
   font-size: inherit;
   font-family: inherit;
   font-style:  inherit;
