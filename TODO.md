@@ -2,11 +2,6 @@
 
 ### BUGS
 
-* Quand on marque qu'une tâche de l'historique est faite, il faut qu'elle reste dans l'historique
-  - de façon générale, il faut même qu'une tâche marquée faite hors de l'historique s'ajoute à l'historique à la date du jour
-* Quand on édite une tâche, le menu du groupe ne semble pas se régler.
-  - même quand on le règle, il semblerait que la tâche soit mal reclassée (en tout cas pour l'historique)
-
 ### PROCHES FEATURES
 
 * Traiter les liens qui doivent s'ouvrir dans une nouvelle fenêtre de navigateur

@@ -246,7 +246,6 @@ get formatedContent(){
   return c
 }
 replaceCrochetsInContent(tout, libelle, lien){
-  console.log("Tout = '%s', libelle = '%s', lien = '%s'", tout, libelle, lien)
   return `<button class="link_in_content" data-link="${lien}">${libelle}</button>`
 }
 

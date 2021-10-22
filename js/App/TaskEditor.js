@@ -24,7 +24,7 @@ getValues(){
   return {
       content:  this.contentField.value.trim()
     , date:     this.menuDays.value
-    , group:    this.menuGroupes.value
+    , group:    this.menuGroups.value
     , files:    this.getFiles()
   }
 }
@@ -43,7 +43,7 @@ getFiles(){
 setValues(){
   this.contentField.value = this.task.content
   this.filesField.value   = this.task.files.join("\n")
-  this.menuDays.value     = this.task.group
+  this.menuGroups.value   = this.task.group
   this.menuDays.value     = this.task.date
 }
 
@@ -105,8 +105,8 @@ build(){
 
   const infos = DCreate('DIV', {class:'infos'})
   infos.appendChild(DCreate('SPAN', {text:'Groupe'}))
-  this.menuGroupes = DCreate('SELECT', {id:'task_editor-group'})
-  infos.appendChild(this.menuGroupes)
+  this.menuGroups = DCreate('SELECT', {id:'task_editor-group'})
+  infos.appendChild(this.menuGroups)
   infos.appendChild(DCreate('SPAN', {text:'Date'}))
   this.menuDays = DCreate('SELECT', {id:'task_editor-date'})
   infos.appendChild(this.menuDays)
@@ -139,8 +139,8 @@ observe(){
 }
 
 peupleGroupMenu(){
-  this.menuGroupes.innerHTML = ''
-  Group.list.forEach(group => this.menuGroupes.appendChild(group.asOption))
+  this.menuGroups.innerHTML = ''
+  Group.list.forEach(group => this.menuGroups.appendChild(group.asOption))
   this.currentGroupCount = Group.list.length
 }
 
