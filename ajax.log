@@ -108,3 +108,7 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 22 - 10:05:56 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
 2021 10 22 - 10:06:03 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0017\",\"state\":0,\"container\":0,\"date\":\"\",\"content\":\"Préparer un dossier pour soutien à déposer à [Mécénat musical](https://www.mecenatmusical.societegenerale.com/deposer-un-projet/formulaire-10).\",\"group\":\"ICED\",\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 22 - 10:07:46 --- Nouvelles données bien enregistrées : {"id"=>"0017", "state"=>0, "container"=>0, "date"=>"21/10/21", "content"=>"Pr\u00E9parer un dossier pour soutien \u00E0 d\u00E9poser \u00E0 <a href=https://www.mecenatmusical.societegenerale.com/deposer-un-projet/formulaire-10>M\u00E9c\u00E9nat musical</a>", "group"=>"ICED", "tasks"=>[], "files"=>[]}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"https://www.mecenatmusical.societegenerale.com/deposer-un-projet/formulaire-10\"}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"https://www.mecenatmusical.societegenerale.com/deposer-un-projet/formulaire-10\"}" 2>&1

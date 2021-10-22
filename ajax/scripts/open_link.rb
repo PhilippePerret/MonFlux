@@ -16,7 +16,13 @@ begin
   retour[:path] = link
   nfile = File.basename(link)
 
-  if File.exist?(link)
+  if link.start_with?('http')
+    #
+    # Cas d'un lien HTML
+    #
+    `open -a Safari #{link}`
+
+  elsif File.exist?(link)
     if File.directory?(link)
       retour[:message] << "#{link.inspect} est un dossier"
       res = `open -a Finder "#{link}"`

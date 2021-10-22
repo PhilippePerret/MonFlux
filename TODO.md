@@ -4,10 +4,6 @@
 
 ### PROCHES FEATURES
 
-* Traiter les liens qui doivent s'ouvrir dans une nouvelle fenêtre de navigateur
-  (pour le moment, le lien ne fait que mettre la tâche en édition — peut-être, dans l'observation du content, faut-il mettre un traitement qui remplace un lien mis explicitement — <a> — en bouton ouvrant normalement
-  ou le remplacer simplement par un truc entre croche et parenthèse et mettre une alerte pour dire de faire directement comme ça
-  Note : c'est le protocole 'http' qui permet de savoir que c'est une URL — => traitement dans LinkOpener)
 * Focusser dans le champ de texte quand on édite la tâche
 * Pouvoir ajouter une tâche à une autre
   -> attention, le traitement du placement ne sera plus le même
