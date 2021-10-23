@@ -7,6 +7,11 @@
  * 
  **/
 class Task {
+
+static get EDITING_TASK_METHOD(){return this._editing_task}
+static set EDITING_TASK_METHOD(v){this._editing_task = v}
+
+
 constructor(data){
   this.data = data
 }
@@ -31,6 +36,10 @@ destroy(){
   .catch(onError)
 }
 
+/**
+ * Méthode d'édition ou autre
+ * 
+ */
 edit(){
   TaskEditor.edit(this)
 }
@@ -157,6 +166,12 @@ build(){
   var toolbox = DCreate('DIV', {class:'tools fright'})
   o = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
   toolbox.appendChild(o)
+  if ( this.isSubTask ) {
+    this.exitButton  = DCreate('a', {class:'exit_btn', text:' 📤', placeholder:'Pour sortir la tâche de son parent'})
+  } else {  
+    this.insertButton = DCreate('a', {class:'insert_btn', text:'📥', placeholder:'Pour insérer la tâche dans une autre tâche'})
+    toolbox.appendChild(this.insertButton)
+  }
   o = DCreate('a', {class:'btn kill_btn', text:'❌'})
   toolbox.appendChild(o)
   obj.appendChild(toolbox)
@@ -170,6 +185,11 @@ observe(){
   this.setEtat()
   this.doneButton.addEventListener('click', this.onToggleDone.bind(this))
   this.killButton.addEventListener('click', this.onKillTask.bind(this))
+  if ( this.isSubTask ) {
+    this.exitButton.addEventListener('click', this.onClickExitButton.bind(this))
+  } else {
+    this.insertButton.addEventListener('click', this.onClickInsertButton.bind(this))
+  }
   this.contentField.addEventListener('click', this.onClickContent.bind(this))
   this.observeText()
 }
@@ -215,8 +235,45 @@ get killButton(){
  * --- Méthode d'observation des évènements ---
 **/
 
+/**
+ * Méthode appelée quand on clique sur le bouton pour déplacer
+ * la tâche dans une autre tâche
+ */
+onClickInsertButton(e){
+  Task.EDITING_TASK_METHOD = this.insertInTask.bind(this)
+  return stopEvent()
+}
+insertInTask(mainTask){
+  Task.EDITING_TASK_METHOD = null
+  console.info("Je dois apprendre à insérer la tâche… dans la tâche…", this, mainTask)
+}
+
+/**
+ * Méthode appelée quand on clique sur le bouton pour sortir la tâche
+ * de son parent.
+ * 
+ */
+onClickExitButton(e){
+
+  return stopEvent()
+}
+
+/**
+ * Méthode appelée quand on clique sur le contenu de la tâche
+ * En général, cela permet d'éditer la tâche. Mais une autre méthode
+ * provisoire peut être utilisée. Par exemple, lorsqu'on doit insérer
+ * une tâche dans une autre, clique sur le contenu permet de choisir
+ * la tâche pour en faire la tâche parent. Dans ce cas, la méthode
+ * d'édition est "by passée" pour être dirigée vers l'insertion de
+ * tâche.
+ * 
+ */
 onClickContent(e){
-  this.edit()
+  if ( Task.EDITING_TASK_METHOD ) {
+    Task.EDITING_TASK_METHOD.call(null, this)
+  } else {
+    this.edit()
+  }
   return stopEvent(e)
 }
 
@@ -252,6 +309,20 @@ replaceCrochetsInContent(tout, libelle, lien){
 /**
  * --- Propriétés volatiles ---
  **/
+
+
+/**
+ * Retourne true si la tâche est une sous-tâche c'est-à-dire si
+ * elle appartient à une autre tâche
+ * 
+ * Pour le savoir, on regarde le container, qui est un nombre 0, 1 ou
+ * 2 quand c'est une tâche principale, et qui est quelque chose comme
+ * '0045' quand c'est une sous-tâche
+ * 
+ */
+get isSubTask(){
+  return 'string' == typeof(this.container)
+}
 
 // Retourne true si c'est une tâche dans l'historique
 get isHistorique(){

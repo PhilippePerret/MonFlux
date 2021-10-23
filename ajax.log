@@ -140,3 +140,30 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 22 - 10:39:26 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
 2021 10 22 - 10:40:11 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv\"}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 08:01:17 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0014\",\"state\":0,\"container\":1,\"date\":\"\",\"content\":\"Poursuivre la base de l’application (MonFlux)\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 23 - 09:31:30 --- Nouvelles données bien enregistrées : {"id"=>"0014", "state"=>0, "container"=>1, "date"=>"21/10/21", "content"=>"Poursuivre la base de cette application (MonFlux)", "group"=>"MonFlux", "tasks"=>[], "files"=>[]}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_id\":\"0008\"}" 2>&1
+2021 10 23 - 09:31:38 --- Destruction OK de la tâche #0008
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":1,\"container\":2,\"date\":\"21/10/23\",\"content\":\"Finaliser le livre sur les gammes et les accords.\",\"group\":\"ICED\",\"tasks\":[],\"files\":[]}}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 09:39:14 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 09:39:22 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 09:52:21 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 09:52:23 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 09:52:24 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Une tâche à insérer dans une autre.\",\"group\":\"divers\",\"tasks\":[],\"files\":[]}}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0022\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"La tâche parent de la tâche à insérer.\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[]}}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 10:18:10 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche\",\"group\":\"divers\",\"tasks\":[],\"files\":[]}}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 10:19:10 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche à insérer dans une autre\",\"group\":\"divers\",\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 23 - 10:19:26 --- Impossible d'enregistrer les données : undefined method `[]' for nil:NilClass
