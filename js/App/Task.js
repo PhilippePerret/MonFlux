@@ -11,6 +11,7 @@ class Task {
 static get EDITING_TASK_METHOD(){return this._editing_task}
 static set EDITING_TASK_METHOD(v){this._editing_task = v}
 
+static get(id){return Tasks.get(id)}
 
 constructor(data){
   this.data = data
@@ -21,10 +22,10 @@ constructor(data){
 **/
 
 save(){
-  ajax({script:'save_task.rb', data: this.data})
+  return ajax({script:'save_task.rb', data: this.data})
   .then(ret => {
     console.info("Tâche sauvée avec ses nouvelles données", this)
-    this.data['new'] = false
+    if ( this.isNew) this.data['new'] = false ;
   })
 }
 
@@ -70,6 +71,32 @@ update(newData){
   // groupe et 2) placer la tâche dans ce nouveau groupe
   //
   groupHasChanged && this.onGroupChanged()
+}
+
+
+/**
+ * Méthode pour ajouter une tâche à la tâche courante
+ * 
+ */
+addSubTask(task){
+  if ( this.id == task.id ) {
+    erreur("Une tâche ne peut pas être insérée dans elle-même")
+  } else if ( this.tasks.indexOf(task.id) > -1 ) {
+    erreur(`La tâche #${task.id} "${task.content.substring(0,50)}" est déjà contenu par cette tâche.`)
+  } else {
+    task.container = this.id
+    this.tasks.push(task.id)
+    task.save().then(this.save.bind(this))
+    console.info("Normalement, la tâche a été insérée.")
+  }
+}
+
+/**
+ * Méthode (appelée au chargement et à l'ajout d'une sous-tâche) pour
+ * afficher la sous-tâche dans la tâche
+ */
+insertTask(task){
+  this.tasksField.appendChild(task.obj)
 }
 
 /**
@@ -119,7 +146,7 @@ onGroupChanged(){
  * 
 **/
 addInContainer(){
-  this.container.addTask(this) 
+  this.container.insertTask(this) 
 }
 
 /**
@@ -164,20 +191,24 @@ build(){
   
   // Boite des boutons
   var toolbox = DCreate('DIV', {class:'tools fright'})
-  o = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
-  toolbox.appendChild(o)
+  this.doneButton = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
+  toolbox.appendChild(this.doneButton)
   if ( this.isSubTask ) {
     this.exitButton  = DCreate('a', {class:'exit_btn', text:' 📤', placeholder:'Pour sortir la tâche de son parent'})
   } else {  
     this.insertButton = DCreate('a', {class:'insert_btn', text:'📥', placeholder:'Pour insérer la tâche dans une autre tâche'})
     toolbox.appendChild(this.insertButton)
   }
-  o = DCreate('a', {class:'btn kill_btn', text:'❌'})
-  toolbox.appendChild(o)
+  this.killButton = DCreate('a', {class:'btn kill_btn', text:'❌'})
+  toolbox.appendChild(this.killButton)
   obj.appendChild(toolbox)
   
   this.contentField = DCreate('SPAN', {class:'content', text:this.formatedContent})
   obj.appendChild(this.contentField)
+
+  this.tasksField = DCreate('DIV', {class:'tasks'})
+  obj.appendChild(this.tasksField)
+
   this._obj = obj
 }
 
@@ -222,14 +253,6 @@ setEtat(){
   this.doneButton.innerHTML = btnName
 }
 
-get doneButton(){
-  return this._btndone || (this._btndone = DGet('.done_btn', this.obj))
-}
-get killButton(){
-  return this._btnkill || (this._btnkill = DGet('.kill_btn', this.obj))
-}
-
-
 
 /**
  * --- Méthode d'observation des évènements ---
@@ -241,11 +264,13 @@ get killButton(){
  */
 onClickInsertButton(e){
   Task.EDITING_TASK_METHOD = this.insertInTask.bind(this)
-  return stopEvent()
+  message("Cliquer sur la tâche dans laquelle il faut ajouter cette tâche.")
+  return stopEvent(e)
 }
 insertInTask(mainTask){
   Task.EDITING_TASK_METHOD = null
   console.info("Je dois apprendre à insérer la tâche… dans la tâche…", this, mainTask)
+  mainTask.addSubTask(this)
 }
 
 /**
@@ -321,7 +346,7 @@ replaceCrochetsInContent(tout, libelle, lien){
  * 
  */
 get isSubTask(){
-  return 'string' == typeof(this.container)
+  return 'string' == typeof(this.container_id)
 }
 
 // Retourne true si c'est une tâche dans l'historique
@@ -371,9 +396,28 @@ get obj(){
 get container(){
   return this._container || (this._container = this.defineContainer())
 }
+/**
+ * Redéfinition du container de la tâche (lorsqu'on la place dans une
+ * autre tâche ou qu'on la sort pour le remettre dans le flux princi-
+ * pal)
+ */
+set container(v){
+  this._container_id = this.data['container'] = v
+  this._container = null
+  // Déplacer la tâche (note : this.container est défini en fonction
+  // de la nature de la tâche : si c'est une tâche principale, le
+  // container est un vrai container, sinon c'est la tâche parente)
+  this.container.insertTask(this)
+}
 get domId(){
   return this._domid || (this._domid = `task-${this.id}`)
 }
+
+get parentTask(){
+  return this._parent || (this._parent = Task.get(this.container_id))
+}
+
+
 
 /**
  * --- Propriété enregistrées ---
@@ -403,17 +447,21 @@ set state(v){
   this._state = this.data['state'] = v
   this.setEtat()
 }
-
+get tasks(){return this._tasks || (this._tasks = this.data['tasks']||[])}
 
 /**
  * === private methods ===
 */
 
 defineContainer(){
-  switch(this.container_id){
-    case 0: return Tasks.containerSansEcheances;
-    case 1: return Tasks.containerCurrent;
-    case 2: return Tasks.containerHistorique;
+  if ( 'string' == typeof(this.container_id) ) {
+    return Tasks.get(this.container_id)
+  } else {  
+    switch(this.container_id){
+      case 0: return Tasks.containerSansEcheances;
+      case 1: return Tasks.containerCurrent;
+      case 2: return Tasks.containerHistorique;
+    }
   }
 }
 

@@ -53,3 +53,15 @@ Le texte de la tâche est ici, sur la seconde ligne.
 ~~~
 
 De cette manière, le texte de la tâche sera bien “Le texte de la tâche est ici, sur la seconde ligne” et cette tâche sera placée dans la nouvelle catégorie “MON_NOUVEAU_GROUPE”.
+
+
+### Insertion d'une tâche (sous-tâche)
+
+L'insertion d'une tâche dans une autre se fait en deux temps :
+
+* on crée la sous-tâche normalement,
+* on l'ajoute à la tâche parente en cliquant sur ton bouton '📥'.
+
+### Sortie d'une tâche de sa tâche parente
+
+Pour sortir une tâche de sa tâche parente, il suffit de cliquer sur son bouton '📤'.

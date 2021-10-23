@@ -58,8 +58,9 @@ onClickAddButton(e){
   }
   // console.log("Données de la nouveau tâche", dataTask)
   const itask = new Task(dataTask)
-  this.addTask(itask)
+  this.insertTask(itask)
   itask.edit()
+  Tasks.add(itask) // pour la récupérer avec Tasks.get (ou Task.get)
   return stopEvent(e)
 }
 
@@ -99,7 +100,7 @@ get footer(){return this._footer || (this._footer = DGet('div.container_footer',
  * l'ordre présenté est inversé.
  * 
  */
-addTask(task){
+insertTask(task){
   // console.log("Ajout de la tâche", task)
   if ( task.isHistorique ) {
     //

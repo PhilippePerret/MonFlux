@@ -13,6 +13,15 @@
 class Tasks {
 
 /**
+ * @return l'instance {Task} d'identifiant +id+
+ */
+static get(id){ return this.items[id] }
+
+static add(task){
+  Object.assign(this.items, {[task.id]: task})
+}
+
+/**
  * @return un ID pour une nouvelle tâche
  * 
 **/
@@ -42,17 +51,33 @@ static load_and_display(){
 }
 
 static instancieAllTasks(ret){
+  this.items = {}
   var taches = ret.tasks.map(dtache => {
     const tache = new Task(dtache)
+    this.add(tache)
     tache.initialize()
     return tache ; // map
   })
   return taches
 }
 
+/**
+ * Méthode qui procède, au démarrage, à l'affichage de toutes les
+ * tâches.
+ * Elle fonctionne en deux temps : d'abord les tâches principales, 
+ * ensuite les tâches enfants
+ */
 static displayAllTasks(taches){
   // console.log("Tâches à afficher : ", taches)
-  taches.forEach(tache => tache.addInContainer())
+  var sous_taches = []
+  taches.forEach(tache => {
+    if ( tache.isSubTask ) {
+      sous_taches.push(tache)
+    } else {
+      tache.addInContainer()
+    }
+  })
+  sous_taches.forEach(tache => {tache.addInContainer()})
 }
 
 

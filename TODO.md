@@ -2,13 +2,17 @@
 
 ### BUGS
 
+* Faire disparaitre les messages (timeout)
+* À la destruction d'une tâche qui en possède d'autres, il faut 
+  détruire aussi toutes les sous-tâches
+
 ### PROCHES FEATURES
 
 
 * Pouvoir ajouter une tâche à une autre
   -> attention, le traitement du placement ne sera plus le même
   ? Est-ce que le container va changer ?
-  
+
 ### Principes
 
 

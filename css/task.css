@@ -45,6 +45,13 @@ section.task-container div.task {
 section.task-container div.task:hover {
   border-color: #CCF;
 }
+section.task-container div.task:before {
+  content: '– ';
+}
+
+section.task-container div.task div.tasks {
+  margin-left: 1.5em;
+}
 
 /* La "boite à outils" de la tâche */
 section.task-container div.task div.tools {
