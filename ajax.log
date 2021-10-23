@@ -286,3 +286,5 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 23 - 12:04:46 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0021\"]}" 2>&1
 2021 10 23 - 12:04:48 --- Destruction OK de la tâche #0021
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0022\",\"state\":0,\"container\":0,\"date\":\"21/10/23\",\"content\":\"Modifier le site (plus simple parce que Marion n’aime la couleur)\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 13:32:15 --- Nouvelles données bien enregistrées : {"id"=>"0022", "state"=>0, "container"=>0, "date"=>"21/10/23", "content"=>"Modifier le site (plus simple parce que Marion n\u2019aime la couleur)", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>true}
