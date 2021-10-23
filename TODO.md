@@ -2,9 +2,6 @@
 
 ### BUGS
 
-* À la destruction d'une tâche qui en possède d'autres, il faut 
-  détruire aussi toutes les sous-tâches
-
 ### PROCHES FEATURES
 
 

@@ -225,3 +225,64 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 23 - 11:49:30 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
 2021 10 23 - 11:51:06 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:58:12 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0023\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Tâche incluse\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 11:58:29 --- Nouvelles données bien enregistrées : {"id"=>"0023", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"T\u00E2che incluse", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0024\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Autre tâche incluse.\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 11:58:36 --- Nouvelles données bien enregistrées : {"id"=>"0024", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"Autre t\u00E2che incluse.", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0023\",\"state\":0,\"container\":\"0022\",\"date\":\"21/10/23\",\"content\":\"Tâche incluse\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 23 - 11:58:47 --- Nouvelles données bien enregistrées : {"id"=>"0023", "state"=>0, "container"=>"0022", "date"=>"21/10/23", "content"=>"T\u00E2che incluse", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0022\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche pour recevoir la tâche\",\"group\":\"MonFlux\",\"tasks\":[\"0021\",\"0023\"],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 11:58:48 --- Nouvelles données bien enregistrées : {"id"=>"0022", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"Nouvelle t\u00E2che pour recevoir la t\u00E2che", "group"=>"MonFlux", "tasks"=>["0021", "0023"], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:58:52 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0024\",\"state\":0,\"container\":\"0022\",\"date\":\"21/10/23\",\"content\":\"Autre tâche incluse.\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 11:59:06 --- Nouvelles données bien enregistrées : {"id"=>"0024", "state"=>0, "container"=>"0022", "date"=>"21/10/23", "content"=>"Autre t\u00E2che incluse.", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0022\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche pour recevoir la tâche\",\"group\":\"MonFlux\",\"tasks\":[\"0021\",\"0023\",\"0024\"],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 11:59:06 --- Nouvelles données bien enregistrées : {"id"=>"0022", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"Nouvelle t\u00E2che pour recevoir la t\u00E2che", "group"=>"MonFlux", "tasks"=>["0021", "0023", "0024"], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:59:10 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:01:22 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:01:33 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0021\",\"0023\",\"0024\",\"0022\"]}" 2>&1
+2021 10 23 - 12:01:44 --- Destruction OK de la tâche #0021
+2021 10 23 - 12:01:44 --- Destruction OK de la tâche #0023
+2021 10 23 - 12:01:44 --- Destruction OK de la tâche #0024
+2021 10 23 - 12:01:44 --- Destruction OK de la tâche #0022
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:03:25 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:03:27 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Tâche propriétaire\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 12:03:38 --- Nouvelles données bien enregistrées : {"id"=>"0021", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"T\u00E2che propri\u00E9taire", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0022\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Tâche à insérer\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 12:03:46 --- Nouvelles données bien enregistrées : {"id"=>"0022", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"T\u00E2che \u00E0 ins\u00E9rer", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0023\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Autre tâche à insérer\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 12:03:54 --- Nouvelles données bien enregistrées : {"id"=>"0023", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"Autre t\u00E2che \u00E0 ins\u00E9rer", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0022\",\"state\":0,\"container\":\"0021\",\"date\":\"21/10/23\",\"content\":\"Tâche à insérer\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 23 - 12:03:59 --- Nouvelles données bien enregistrées : {"id"=>"0022", "state"=>0, "container"=>"0021", "date"=>"21/10/23", "content"=>"T\u00E2che \u00E0 ins\u00E9rer", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Tâche propriétaire\",\"group\":\"divers\",\"tasks\":[\"0022\"],\"files\":[],\"new\":false}}" 2>&1
+2021 10 23 - 12:03:59 --- Nouvelles données bien enregistrées : {"id"=>"0021", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"T\u00E2che propri\u00E9taire", "group"=>"divers", "tasks"=>["0022"], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0023\",\"state\":0,\"container\":\"0021\",\"date\":\"21/10/23\",\"content\":\"Autre tâche à insérer\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 23 - 12:04:03 --- Nouvelles données bien enregistrées : {"id"=>"0023", "state"=>0, "container"=>"0021", "date"=>"21/10/23", "content"=>"Autre t\u00E2che \u00E0 ins\u00E9rer", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Tâche propriétaire\",\"group\":\"divers\",\"tasks\":[\"0022\",\"0023\"],\"files\":[],\"new\":false}}" 2>&1
+2021 10 23 - 12:04:04 --- Nouvelles données bien enregistrées : {"id"=>"0021", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"T\u00E2che propri\u00E9taire", "group"=>"divers", "tasks"=>["0022", "0023"], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:04:06 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:04:06 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0022\",\"0023\",\"0021\"]}" 2>&1
+2021 10 23 - 12:04:08 --- Destruction OK de la tâche #0022
+2021 10 23 - 12:04:08 --- Destruction OK de la tâche #0023
+2021 10 23 - 12:04:08 --- Destruction OK de la tâche #0021
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:04:28 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Une tâche à détruire tout de suite.\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 12:04:41 --- Nouvelles données bien enregistrées : {"id"=>"0021", "state"=>0, "container"=>1, "date"=>"21/10/23", "content"=>"Une t\u00E2che \u00E0 d\u00E9truire tout de suite.", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 12:04:46 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0021\"]}" 2>&1
+2021 10 23 - 12:04:48 --- Destruction OK de la tâche #0021

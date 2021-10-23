@@ -51,6 +51,7 @@ section.task-container div.task:before {
 
 section.task-container div.task div.tasks {
   margin-left: 1.5em;
+  clear: both;
 }
 
 /* La "boite à outils" de la tâche */
@@ -81,7 +82,8 @@ section.task-container > div.tasks > div.task {
   /*border-radius: 12px;*/
   width: calc(100% - 76px);
   margin-left: 40px;
-  padding: 8px 16px;
+  padding: 0px 16px;
+  clear: both;
 }
 
 section.task-container > div.tasks div.task.done {

@@ -30,10 +30,15 @@ save(){
 }
 
 destroy(){
-  ajax({script:'destroy_task.rb', task_id: this.id})
+  var ids = this.tasks.map(id => {return id})
+  ids.push(this.id)
+  ajax({script:'destroy_task.rb', task_ids: ids})
   .then(ret => {
     this.obj.remove()
-    console.info("Tâche détruite", this)
+    const s = ids.length > 1 ? 's' : ''
+    const msg = `Tâche${s} détruite${s}.`
+    console.info(msg, this)
+    message(msg)
   })
   .catch(onError)
 }
