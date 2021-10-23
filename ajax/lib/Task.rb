@@ -13,7 +13,7 @@ attr_reader :data
 # charge les données depuis le fichier
 #
 def initialize data
-  if data.key?(:content)
+  if data.key?('content')
     @data = data
   else
     @id = data['id']||data[:id]
