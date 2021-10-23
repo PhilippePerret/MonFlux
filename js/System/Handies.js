@@ -3,8 +3,11 @@
 
   MÉTHODES PRATIQUES
   ------------------
-  Version 1.3.0
+  Version 1.4.0
 
+# 1.4.0
+  Gestion de la disparition des messages
+  
 # 1.3.0
   Ajout de l'event 'message' sur window, permettant de recevoir des
   message par origin croisée.
@@ -48,12 +51,42 @@ function focusIn(element) {
   element.dispatchEvent(event);
 }
 
+class Message {
+  static display(msg, type){
+    this.obj.classList.remove('hidden')
+    var duree = (msg.split(' ').length / 7) * 1.5
+    duree > 3 || (duree = 3)
+    if ( type == 'error' ) duree = duree * 4
+    this.obj.innerHTML = msg
+    this.obj.className = type
+    if ( !this.endTime ) {
+      this.endTime = new Date()
+    }
+    this.endTime.setTime(this.endTime.getTime() + duree * 1000)
+    this.timer && this.clearTimer()
+    duree = this.endTime.getTime() - new Date().getTime()
+    this.timer = setTimeout(this.hide.bind(this), duree)
+  }
+  static hide(){
+    this.clearTimer()
+    this.obj.classList.add('hidden')
+  }
+  static clearTimer(){
+    clearTimeout(this.timer)
+    this.timer = null
+    delete this.timer
+  }
+
+  static get obj(){
+    return this._obj || (this._obj = DGet('#message'))
+  }
+}
+
+
 // Méthode à utiliser en catch des promesses
 function onError(err){
   console.error(err)
-  var omsg = DGet('#message')
-  omsg.innerHTML = err
-  omsg.className = 'error'
+  Message.display(msg, 'error')
   return false
 }
 
@@ -62,10 +95,8 @@ function erreur(err){
 }
 
 function message(msg){
-  var omsg = DGet('#message')
-  omsg.innerHTML = msg
-  omsg.className = 'notice'
-  return false
+  Message.display(msg, 'notice')
+  return true
 }
 
 /**

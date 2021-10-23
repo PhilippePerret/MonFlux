@@ -211,3 +211,17 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 23 - 11:28:28 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":2,\"container\":\"0022\",\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche à insérer\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
 2021 10 23 - 11:28:57 --- Nouvelles données bien enregistrées : {"id"=>"0021", "state"=>2, "container"=>2, "date"=>"21/10/23", "content"=>"Nouvelle t\u00E2che \u00E0 ins\u00E9rer", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:46:59 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:47:54 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:48:45 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:49:24 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:49:26 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:49:30 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 11:51:06 --- = fichier historique mois précédent existe
