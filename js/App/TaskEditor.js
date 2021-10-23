@@ -11,6 +11,7 @@ edit(task){
   this.positionne()
   this.setValues()
   this.focus()
+  task.isNew && this.selectContent()
 }
 
 updateTask(){
@@ -57,6 +58,9 @@ close(){this.obj.classList.add('hidden')}
  */
 focus(){
   this.contentField.focus()
+}
+selectContent(){
+  this.contentField.select() 
 }
 
 /**

@@ -8,9 +8,7 @@
 * Pouvoir ajouter une tâche à une autre
   -> attention, le traitement du placement ne sera plus le même
   ? Est-ce que le container va changer ?
-* Quand c'est une nouvelle tâche, sélectionner tout le contenu à 
-  l'édition.
-
+  
 ### Principes
 
 

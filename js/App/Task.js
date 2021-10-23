@@ -24,6 +24,7 @@ save(){
   ajax({script:'save_task.rb', data: this.data})
   .then(ret => {
     console.info("Tâche sauvée avec ses nouvelles données", this)
+    this.data['new'] = false
   })
 }
 
@@ -80,7 +81,6 @@ update(newData){
 checkNewContent(newData){
   var newContent = newData.content
   if ( newContent != this.content ) {
-    console.log("Contenu a changé")
     var lines = newContent.split("\n")
     if ( lines.length > 1 ) {
       const firstLine = lines.shift().trim()
@@ -332,6 +332,9 @@ get isHistorique(){
 get isDone(){
   return this.state > 1
 }
+
+// Retourne true si c'est une nouvelle tâche
+get isNew(){ return this.data['new'] == true }
 
 
 /** 

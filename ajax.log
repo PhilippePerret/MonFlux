@@ -167,3 +167,7 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 23 - 10:19:10 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche à insérer dans une autre\",\"group\":\"divers\",\"tasks\":[],\"files\":[]}}" 2>&1
 2021 10 23 - 10:19:26 --- Impossible d'enregistrer les données : undefined method `[]' for nil:NilClass
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 23 - 10:24:55 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0021\",\"state\":0,\"container\":1,\"date\":\"21/10/23\",\"content\":\"Nouvelle tâche à insérer\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 23 - 10:25:17 --- Impossible d'enregistrer les données : undefined method `[]' for nil:NilClass

@@ -49,10 +49,11 @@ onClickAddButton(e){
     , state: this.id == 2 ? 1 : 0
     , container: this.id
     , date: Jour.todayAsYYMMDD
-    , content: "Nouveau tâche"
+    , content: "Nouvelle tâche"
     , group: 'divers'
-    , tasks: []
-    , files: []
+    , tasks:  []
+    , files:  []
+    , new:    true
     ,
   }
   // console.log("Données de la nouveau tâche", dataTask)
