@@ -2,12 +2,14 @@
 
 ### BUGS
 
+* À la création d'une nouvelle tâche, elle est placée au bout de la liste. En fait, il faut la replacer dans son container après sa création.
+* les messages ne semblent s'afficher qu'une seule fois
+
 ### PROCHES FEATURES
 
+* Gérer le fait qu'une tâche ne peut pas être marquée faite si toutes ses sous-tâches n'ont pas êté marquées faite
+  - si on clique sur "ok" et qu'il reste des sous-tâches à faire : demander s'il faut vraiment considérer toutes les sous-tâches comme faites
 
-* Pouvoir ajouter une tâche à une autre
-  -> attention, le traitement du placement ne sera plus le même
-  ? Est-ce que le container va changer ?
 
 ### Principes
 
