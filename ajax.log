@@ -369,3 +369,30 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_i
 2021 10 24 - 07:11:19 --- Destruction OK de la tâche #0031
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0034\"]}" 2>&1
 2021 10 24 - 07:11:29 --- Destruction OK de la tâche #0034
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:17:24 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0031\",\"state\":0,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Tâche maitresse\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 07:18:02 --- Nouvelles données bien enregistrées : {"id"=>"0031", "state"=>0, "container"=>1, "date"=>"21/10/24", "content"=>"T\u00E2che maitresse", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0032\",\"state\":0,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Sous tâche à ajouter\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 07:18:09 --- Nouvelles données bien enregistrées : {"id"=>"0032", "state"=>0, "container"=>1, "date"=>"21/10/24", "content"=>"Sous t\u00E2che \u00E0 ajouter", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0031\",\"state\":0,\"container\":\"0032\",\"date\":\"21/10/24\",\"content\":\"Tâche maitresse\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 24 - 07:18:14 --- Nouvelles données bien enregistrées : {"id"=>"0031", "state"=>0, "container"=>"0032", "date"=>"21/10/24", "content"=>"T\u00E2che maitresse", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0032\",\"state\":0,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Sous tâche à ajouter\",\"group\":\"divers\",\"tasks\":[\"0031\"],\"files\":[],\"new\":false}}" 2>&1
+2021 10 24 - 07:18:14 --- Nouvelles données bien enregistrées : {"id"=>"0032", "state"=>0, "container"=>1, "date"=>"21/10/24", "content"=>"Sous t\u00E2che \u00E0 ajouter", "group"=>"divers", "tasks"=>["0031"], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:18:21 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:18:28 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:18:58 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0031\",\"state\":0,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Tâche maitresse\",\"group\":\"divers\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 24 - 07:19:03 --- Nouvelles données bien enregistrées : {"id"=>"0031", "state"=>0, "container"=>1, "date"=>"21/10/24", "content"=>"T\u00E2che maitresse", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:19:08 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0031\"]}" 2>&1
+2021 10 24 - 07:19:11 --- Destruction OK de la tâche #0031
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0031\",\"0032\"]}" 2>&1
+2021 10 24 - 07:19:14 --- Destruction OK de la tâche #0031
+2021 10 24 - 07:19:14 --- Destruction OK de la tâche #0032
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:19:23 --- = fichier historique mois précédent existe

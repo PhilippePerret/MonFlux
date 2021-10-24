@@ -33,7 +33,7 @@ save(){
       //  - mettre son :new à false maintenant qu'elle est enregistrée
       //  - la placer au bon endroit
       //
-      this.container.insertTask(this)
+      this.addInContainer()
       this.data['new'] = false ;
     }
   })
@@ -112,7 +112,7 @@ addSubTask(task){
  * Bien noter que cette méthode sert lorsque cette tâche est parente
  * donc contient la tâche +task+. Pour ajouter cette tâche à son 
  * container (quel qu'il soit), il faut utiliser : 
- *  this.container.insertTask(this)
+ *  this.addInContainer()
  * 
  */
 insertTask(task){
@@ -299,8 +299,10 @@ insertInTask(mainTask){
  * 
  */
 onClickExitButton(e){
-
-  return stopEvent()
+  this.container = this.parentTask.container_id
+  this.addInContainer()
+  this.save()
+  return stopEvent(e)
 }
 
 /**
