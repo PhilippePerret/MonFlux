@@ -52,24 +52,77 @@ function focusIn(element) {
 }
 
 class Message {
+
+  /**
+   * = main =
+   * 
+   * Affiche le message +msg+ de type +type+ et laisse le message
+   * affiché en fonction de sa longueur et de son type.
+   * 
+   * @param msg   {String} Le message à afficher
+   * @param type  {String} Le type du message :
+   *                       error, notice ou action
+   */
   static display(msg, type){
-    this.obj.classList.remove('hidden')
+    this.calcEndTime(msg, type)
+    this.setTimer()
+    this.setDisplay(msg, type)
+    this.show()
+  }
+
+  /**
+   * Place le timer de fermeture du message
+   * 
+   */
+  static setTimer(){
+    if ( this.timer ) this.clearTimer() ;
+    const duree = this.calcDuree()
+    console.log("Durée d'affichage du message (en millisecondes", duree)
+    this.timer = setTimeout(this.hide.bind(this), duree)
+  }
+
+  /**
+   * Calcul le temps de fin en fonction de la longueur du message et
+   * du temps déjà en attente (message précédent)
+   */
+  static calcEndTime(msg, type){
     var duree = (msg.split(' ').length / 7) * 1.5
     duree > 3 || (duree = 3)
     if ( type == 'error' ) duree = duree * 4
-    this.obj.innerHTML = msg
-    this.obj.className = type
     if ( !this.endTime ) {
       this.endTime = new Date()
     }
     this.endTime.setTime(this.endTime.getTime() + duree * 1000)
-    this.timer && this.clearTimer()
-    duree = this.endTime.getTime() - new Date().getTime()
-    this.timer = setTimeout(this.hide.bind(this), duree)
+  }
+  
+  /**
+   * Calcul la durée d'affichage du message en fonction du temps
+   * de fin calculé
+   */
+  static calcDuree(){
+    return this.endTime.getTime() - new Date().getTime()
+  }
+
+  /**
+   * Règle l'affichage en fonction du message et de son type
+   * 
+   */
+  static setDisplay(msg, type){
+    this.obj.innerHTML = msg
+    this.obj.className = type
+  }
+  static show(){
+    this.obj.classList.remove('hidden')
   }
   static hide(){
-    this.clearTimer()
     this.obj.classList.add('hidden')
+    this.clearAll()
+  }
+
+  static clearAll(){
+    this.endTime = null
+    delete this.endTime
+    this.clearTimer()
   }
   static clearTimer(){
     clearTimeout(this.timer)
@@ -94,8 +147,12 @@ function erreur(err){
   return onError(err)
 }
 
-function message(msg){
-  Message.display(msg, 'notice')
+/**
+ * @param {String} type   Le type, entre 'notice' (défaut), 'action'
+ *                        (pour une action) et 'error'
+ */
+function message(msg, type){
+  Message.display(msg, type || 'notice')
   return true
 }
 
