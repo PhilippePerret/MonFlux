@@ -138,7 +138,7 @@ class Message {
 // Méthode à utiliser en catch des promesses
 function onError(err){
   console.error(err)
-  Message.display(msg, 'error')
+  Message.display(err, 'error')
   return false
 }
 

@@ -6,6 +6,8 @@
  * 
  * 
  **/
+const STATE_DONE = 2
+
 class Task {
 
 static get EDITING_TASK_METHOD(){return this._editing_task}
@@ -259,7 +261,12 @@ observeText(){
 
 
 /**
- * Définit l'état visuellement (fait/à faire)
+ * Définit l'état de la tâche (faite/à faire)
+ * 
+ * Noter le cas particulier d'une tâche qui en contient plusieurs :
+ * elle ne peut être marquée faite que si toutes ses sous-tâches sont
+ * faites. Si ça n'est pas le cas, on demande à l'utilisateur s'il
+ * veut marquer toutes ses sous-tâches faites.
 **/
 setEtat(){
   // console.log("-> setEtat", this)
@@ -324,9 +331,43 @@ onClickContent(e){
   return stopEvent(e)
 }
 
+/**
+ * Bouton appelé quand on clique sur le bouton pour marquer la
+ * tâche faite ou non faite
+ * 
+ * Noter le cas spécial de la tâche qui en contient d'autres.
+ * 
+ */
 onToggleDone(e){
-  this.state = this.isDone ? 1 : 2
-  this.save()
+  var stateMustChange = true
+  const newState = this.isDone ? 1 : 2
+  if ( this.hasTasks && newState == STATE_DONE ) {
+    //
+    // Si une seule sous-tâche n'est pas marquée faite, on doit
+    // interroger l'utlisateur
+    //
+    var nombre_undone   = 0
+    this.subTasks.forEach(task => {
+      if ( !task.isDone ) {
+        ++ nombre_undone
+      }
+    })
+    if ( nombre_undone > 0 ) {
+      stateMustChange = false
+      var ajout ;
+      if ( nombre_undone > 1 ) {
+        ajout = `${nombre_undone} n’ont pas été accomplies`
+      } else {
+        ajout = "une tâche n’a pas été acomplie"
+      }
+      erreur(`Toutes ses tâches doivent avoir été marquées accomplies. Or, ${ajout}.`)
+    }
+  }
+
+  if (stateMustChange) {
+    this.state = newState
+    this.save()
+  }
   return stopEvent(e)
 }
 
@@ -369,6 +410,13 @@ replaceCrochetsInContent(tout, libelle, lien){
  */
 get isSubTask(){
   return 'string' == typeof(this.container_id)
+}
+
+/**
+ * Renvoie true si la tâche contient d'autres tâches
+ */
+get hasTasks(){
+  return this.tasks.length > 0
 }
 
 // Retourne true si c'est une tâche dans l'historique
@@ -439,6 +487,13 @@ get parentTask(){
   return this._parent || (this._parent = Task.get(this.container_id))
 }
 
+/**
+ * Retourne la liste des instances de sous-tâches
+ */
+get subTasks(){
+  return this._subtasks || (this._subtasks = this.getInstancesOfSubTasks())
+}
+
 
 
 /**
@@ -498,5 +553,8 @@ getDate(){
 }
 getTime(){
   return parseInt(this.dateAsDate.getTime()/10000,10)
+}
+getInstancesOfSubTasks(){
+  return this.tasks.map(task_id => {return Task.get(task_id)})
 }
 }// class Task
