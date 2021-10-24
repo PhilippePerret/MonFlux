@@ -22,9 +22,11 @@ constructor(data){
 **/
 
 save(){
+  message("Enregistrement de la tâche…", 'action')
   return ajax({script:'save_task.rb', data: this.data})
   .then(ret => {
     console.info("Tâche sauvée avec ses nouvelles données", this)
+    message("Tâche enregistrée.")
     if ( this.isNew) this.data['new'] = false ;
   })
 }
@@ -92,7 +94,6 @@ addSubTask(task){
     task.container = this.id
     this.tasks.push(task.id)
     task.save().then(this.save.bind(this))
-    console.info("Normalement, la tâche a été insérée.")
   }
 }
 
@@ -199,7 +200,8 @@ build(){
   this.doneButton = DCreate('a', {class:'btn done_btn', text:this.isDone?'refaire':'OK'})
   toolbox.appendChild(this.doneButton)
   if ( this.isSubTask ) {
-    this.exitButton  = DCreate('a', {class:'exit_btn', text:' 📤', placeholder:'Pour sortir la tâche de son parent'})
+    this.exitButton  = DCreate('a', {class:'exit_btn', text:'📤', placeholder:'Pour sortir la tâche de son parent'})
+    toolbox.appendChild(this.exitButton)
   } else {  
     this.insertButton = DCreate('a', {class:'insert_btn', text:'📥', placeholder:'Pour insérer la tâche dans une autre tâche'})
     toolbox.appendChild(this.insertButton)
@@ -274,7 +276,6 @@ onClickInsertButton(e){
 }
 insertInTask(mainTask){
   Task.EDITING_TASK_METHOD = null
-  console.info("Je dois apprendre à insérer la tâche… dans la tâche…", this, mainTask)
   mainTask.addSubTask(this)
 }
 
