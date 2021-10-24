@@ -356,3 +356,16 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\
 2021 10 24 - 07:04:30 --- Nouvelles données bien enregistrées : {"id"=>"0032", "state"=>2, "container"=>2, "date"=>"21/10/24", "content"=>"un ta^che dedans", "group"=>"divers", "tasks"=>[], "files"=>[], "new"=>false}
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0031\",\"state\":2,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Une tâche maitresse\",\"group\":\"divers\",\"tasks\":[\"0033\"],\"files\":[],\"new\":false}}" 2>&1
 2021 10 24 - 07:04:34 --- Nouvelles données bien enregistrées : {"id"=>"0031", "state"=>2, "container"=>2, "date"=>"21/10/24", "content"=>"Une t\u00E2che maitresse", "group"=>"divers", "tasks"=>["0033"], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 07:10:38 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0034\",\"state\":0,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Nouvelle tâche dans Icare pour voir le placement\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 07:10:53 --- Nouvelles données bien enregistrées : {"id"=>"0034", "state"=>0, "container"=>1, "date"=>"21/10/24", "content"=>"Nouvelle t\u00E2che dans Icare pour voir le placement", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0033\"]}" 2>&1
+2021 10 24 - 07:11:15 --- Destruction OK de la tâche #0033
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0032\"]}" 2>&1
+2021 10 24 - 07:11:16 --- Destruction OK de la tâche #0032
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0033\",\"0031\"]}" 2>&1
+2021 10 24 - 07:11:19 --- Destruction OK de la tâche #0033
+2021 10 24 - 07:11:19 --- Destruction OK de la tâche #0031
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0034\"]}" 2>&1
+2021 10 24 - 07:11:29 --- Destruction OK de la tâche #0034

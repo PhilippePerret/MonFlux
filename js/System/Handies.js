@@ -77,7 +77,6 @@ class Message {
   static setTimer(){
     if ( this.timer ) this.clearTimer() ;
     const duree = this.calcDuree()
-    console.log("Durée d'affichage du message (en millisecondes", duree)
     this.timer = setTimeout(this.hide.bind(this), duree)
   }
 

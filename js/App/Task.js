@@ -27,7 +27,15 @@ save(){
   .then(ret => {
     console.info("Tâche sauvée avec ses nouvelles données", this)
     message("Tâche enregistrée.")
-    if ( this.isNew) this.data['new'] = false ;
+    if ( this.isNew){ 
+      //
+      // Quand c'est une nouvelle tâche, il faut :
+      //  - mettre son :new à false maintenant qu'elle est enregistrée
+      //  - la placer au bon endroit
+      //
+      this.container.insertTask(this)
+      this.data['new'] = false ;
+    }
   })
 }
 
@@ -99,7 +107,13 @@ addSubTask(task){
 
 /**
  * Méthode (appelée au chargement et à l'ajout d'une sous-tâche) pour
- * afficher la sous-tâche dans la tâche
+ * afficher la sous-tâche dans la tâche.
+ * 
+ * Bien noter que cette méthode sert lorsque cette tâche est parente
+ * donc contient la tâche +task+. Pour ajouter cette tâche à son 
+ * container (quel qu'il soit), il faut utiliser : 
+ *  this.container.insertTask(this)
+ * 
  */
 insertTask(task){
   this.tasksField.appendChild(task.obj)

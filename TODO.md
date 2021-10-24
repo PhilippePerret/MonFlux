@@ -2,8 +2,6 @@
 
 ### BUGS
 
-* À la création d'une nouvelle tâche, elle est placée au bout de la liste. En fait, il faut la replacer dans son container après sa création.
-* les messages ne semblent s'afficher qu'une seule fois
 
 ### PROCHES FEATURES
 
