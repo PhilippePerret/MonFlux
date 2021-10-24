@@ -22,11 +22,11 @@ constructor(data){
 **/
 
 save(){
-  message("Enregistrement de la tâche…", 'action')
+  // message("Enregistrement de la tâche…", 'action')
   return ajax({script:'save_task.rb', data: this.data})
   .then(ret => {
     console.info("Tâche sauvée avec ses nouvelles données", this)
-    message("Tâche enregistrée.")
+    // message("Tâche enregistrée.")
     if ( this.isNew){ 
       //
       // Quand c'est une nouvelle tâche, il faut :
@@ -48,7 +48,7 @@ destroy(){
     const s = ids.length > 1 ? 's' : ''
     const msg = `Tâche${s} détruite${s}.`
     console.info(msg, this)
-    message(msg)
+    // message(msg)
   })
   .catch(onError)
 }
