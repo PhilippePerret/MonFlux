@@ -438,3 +438,102 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_i
 2021 10 24 - 07:41:05 --- Destruction OK de la tâche #0032
 2021 10 24 - 07:41:05 --- Destruction OK de la tâche #0033
 2021 10 24 - 07:41:05 --- Destruction OK de la tâche #0031
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0029\",\"state\":2,\"container\":\"0025\",\"date\":\"21/10/24\",\"content\":\"Ajouter le numéro ISBN\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 24 - 09:00:13 --- Nouvelles données bien enregistrées : {"id"=>"0029", "state"=>2, "container"=>2, "date"=>"21/10/24", "content"=>"Ajouter le num\u00E9ro ISBN", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0028\",\"state\":2,\"container\":\"0025\",\"date\":\"21/10/24\",\"content\":\"Ajouter le prix du livre\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 24 - 09:00:15 --- Nouvelles données bien enregistrées : {"id"=>"0028", "state"=>2, "container"=>2, "date"=>"21/10/24", "content"=>"Ajouter le prix du livre", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0034\",\"state\":1,\"container\":2,\"date\":\"21/10/24\",\"content\":\"Télécharger le document de Bruno Toch\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 09:00:43 --- Nouvelles données bien enregistrées : {"id"=>"0034", "state"=>1, "container"=>2, "date"=>"21/10/24", "content"=>"T\u00E9l\u00E9charger le document de Bruno Toch", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0035\",\"state\":1,\"container\":2,\"date\":\"21/10/24\",\"content\":\"Télécharger le document de Laure & Corinne\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 09:01:15 --- Nouvelles données bien enregistrées : {"id"=>"0035", "state"=>1, "container"=>2, "date"=>"21/10/24", "content"=>"T\u00E9l\u00E9charger le document de Laure & Corinne", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 09:01:24 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0036\",\"state\":0,\"container\":1,\"date\":\"21/10/24\",\"content\":\"Commentaires sur le document de Laure et Corine\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 09:02:07 --- Nouvelles données bien enregistrées : {"id"=>"0036", "state"=>0, "container"=>1, "date"=>"21/10/24", "content"=>"Commentaires sur le document de Laure et Corine", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0024\",\"state\":0,\"container\":0,\"date\":\"21/10/24\",\"content\":\"Une application web (comme celle-ci) qui permet de tout piloter à l’aide du clavier maitre.\",\"group\":\"APPLICATIONS\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 09:06:38 --- Nouvelles données bien enregistrées : {"id"=>"0024", "state"=>0, "container"=>0, "date"=>"21/10/24", "content"=>"Une application web (comme celle-ci) qui permet de tout piloter \u00E0 l\u2019aide du clavier maitre.", "group"=>"APPLICATIONS", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 09:06:44 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0026\",\"state\":1,\"container\":\"0025\",\"date\":\"21/10/24\",\"content\":\"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu’on donne pour calculer le prix d’un livre.\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 20:18:52 --- Nouvelles données bien enregistrées : {"id"=>"0026", "state"=>1, "container"=>"0025", "date"=>"21/10/24", "content"=>"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu\u2019on donne pour calculer le prix d\u2019un livre.", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0025\",\"state\":1,\"container\":2,\"date\":\"21/10/24\",\"content\":\"Finaliser la première version du GAT et commander des épreuves papier\",\"group\":\"ICED\",\"tasks\":[\"0028\",\"0029\",\"0030\",\"0026\"],\"files\":[],\"new\":false}}" 2>&1
+2021 10 24 - 20:18:52 --- Nouvelles données bien enregistrées : {"id"=>"0025", "state"=>1, "container"=>2, "date"=>"21/10/24", "content"=>"Finaliser la premi\u00E8re version du GAT et commander des \u00E9preuves papier", "group"=>"ICED", "tasks"=>["0028", "0029", "0030", "0026"], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 20:19:11 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0026\",\"state\":1,\"container\":2,\"date\":\"21/10/24\",\"content\":\"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu’on donne pour calculer le prix d’un livre.\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 24 - 20:19:17 --- Nouvelles données bien enregistrées : {"id"=>"0026", "state"=>1, "container"=>2, "date"=>"21/10/24", "content"=>"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu\u2019on donne pour calculer le prix d\u2019un livre.", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 24 - 20:19:25 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 08:56:09 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 08:56:43 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:03:02 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:04:28 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:04:47 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:05:11 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:08:10 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:08:44 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0037\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Reprendre le matériel et les tonalités du vademecum (images) pour les mettre à un endroit où tout le monde peut les atteindre (mais faire une duplication)\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 09:09:23 --- Nouvelles données bien enregistrées : {"id"=>"0037", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Reprendre le mat\u00E9riel et les tonalit\u00E9s du vademecum (images) pour les mettre \u00E0 un endroit o\u00F9 tout le monde peut les atteindre (mais faire une duplication)", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 09:09:31 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0026\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu’on donne pour calculer le prix d’un livre.\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 09:09:56 --- Nouvelles données bien enregistrées : {"id"=>"0026", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu\u2019on donne pour calculer le prix d\u2019un livre.", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0026\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu’on donne pour calculer le prix d’un livre.\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 25 - 09:10:04 --- Nouvelles données bien enregistrées : {"id"=>"0026", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Pour la CLI iced, dans calcul, remplacer les virgules par des points dans les valeurs qu\u2019on donne pour calculer le prix d\u2019un livre.", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/open_link.rb "{\"link\":\"/Users/philippeperret/Sites/Atelier_Icare/Commentaires/_Commentaires.scriv\"}" 2>&1
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0038\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Mail pour demander à Bruno ce qu’il veut faire ensuite\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 14:29:05 --- Nouvelles données bien enregistrées : {"id"=>"0038", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Mail pour demander \u00E0 Bruno ce qu\u2019il veut faire ensuite", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:31:06 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:33:27 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:35:47 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0039\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Nouvelle tâche\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 14:36:01 --- Nouvelles données bien enregistrées : {"id"=>"0039", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Nouvelle t\u00E2che", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:46:07 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0039\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Mail envoyé à Bruno pour lui demander ce qu’il faut faire ensuite\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 14:46:29 --- Nouvelles données bien enregistrées : {"id"=>"0039", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Mail envoy\u00E9 \u00E0 Bruno pour lui demander ce qu\u2019il faut faire ensuite", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0039\",\"state\":2,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Mail envoyé à Bruno pour lui demander ce qu’il faut faire ensuite\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
+2021 10 25 - 14:46:37 --- Nouvelles données bien enregistrées : {"id"=>"0039", "state"=>2, "container"=>2, "date"=>"21/10/25", "content"=>"Mail envoy\u00E9 \u00E0 Bruno pour lui demander ce qu\u2019il faut faire ensuite", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:46:40 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:46:44 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:46:45 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:54:45 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0040\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Récupération du matériel ayant servi au GAT pour tout livre d’analyse.\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 14:55:27 --- Nouvelles données bien enregistrées : {"id"=>"0040", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"R\u00E9cup\u00E9ration du mat\u00E9riel ayant servi au GAT pour tout livre d\u2019analyse.", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0037\"]}" 2>&1
+2021 10 25 - 14:55:52 --- Destruction OK de la tâche #0037
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:55:54 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 14:59:51 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0040\",\"state\":2,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Récupération du matériel ayant servi au GAT pour tout livre d’analyse.\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 14:59:59 --- Nouvelles données bien enregistrées : {"id"=>"0040", "state"=>2, "container"=>2, "date"=>"21/10/25", "content"=>"R\u00E9cup\u00E9ration du mat\u00E9riel ayant servi au GAT pour tout livre d\u2019analyse.", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 15:05:04 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0041\",\"state\":1,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Nouvelle tâche qui fonctionne\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 15:05:25 --- Nouvelles données bien enregistrées : {"id"=>"0041", "state"=>1, "container"=>2, "date"=>"21/10/25", "content"=>"Nouvelle t\u00E2che qui fonctionne", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 25 - 15:05:28 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0041\"]}" 2>&1
+2021 10 25 - 15:05:33 --- Destruction OK de la tâche #0041
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0038\",\"state\":2,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Mail pour demander à Bruno ce qu’il veut faire ensuite\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 15:05:39 --- Nouvelles données bien enregistrées : {"id"=>"0038", "state"=>2, "container"=>2, "date"=>"21/10/25", "content"=>"Mail pour demander \u00E0 Bruno ce qu\u2019il veut faire ensuite", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0035\",\"state\":2,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Télécharger le document de Laure & Corinne\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 15:05:47 --- Nouvelles données bien enregistrées : {"id"=>"0035", "state"=>2, "container"=>2, "date"=>"21/10/25", "content"=>"T\u00E9l\u00E9charger le document de Laure & Corinne", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0034\",\"state\":2,\"container\":2,\"date\":\"21/10/25\",\"content\":\"Télécharger le document de Bruno Toch\",\"group\":\"ICARE\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 25 - 15:05:50 --- Nouvelles données bien enregistrées : {"id"=>"0034", "state"=>2, "container"=>2, "date"=>"21/10/25", "content"=>"T\u00E9l\u00E9charger le document de Bruno Toch", "group"=>"ICARE", "tasks"=>[], "files"=>[], "new"=>true}

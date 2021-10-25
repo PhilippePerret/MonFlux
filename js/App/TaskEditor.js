@@ -83,8 +83,15 @@ onClickCancel(e){
  */
 positionne(){
   const rect = this.task.obj.getBoundingClientRect()
-  this.obj.style.top  = px(rect.top - 10)
-  this.obj.style.left = px(rect.left - 10)
+  if ( this.task.isNew ) {
+    console.log("-> nouveau")
+    this.obj.style.top = px(40)
+    delete this.obj.style.top
+  } else {
+    this.obj.style.bottom = ''
+    this.obj.style.top    = px(rect.top - 10)
+  }
+  this.obj.style.left   = px(rect.left - 10)
   this.open()
 }
 

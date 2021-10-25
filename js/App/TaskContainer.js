@@ -66,6 +66,7 @@ onClickAddButton(e){
 
 dimensionne(){
   this.obj.style.height = px(window.innerHeight - 3)
+  this.tasksList.style.maxHeight = px(window.innerHeight - 83)
 }
 
 prepare(){
@@ -132,14 +133,28 @@ placeElementInHistorique(foo){
     // console.log("Time du jour/tâche comparé : ", divtime)
     if (foo.time > divtime) {
       // console.log("Le time de la CHOSE est inférieur => on la place avant le jour/tâche comparé")
-      this.taskContainer.insertBefore(foo.obj, div)
-      placed = true
+      try {
+        if ( div.parentNode != this.tasksList ) {
+          console.error("Le parent du div avant lequel mettre la tâche n'est pas le bon… J'ajoute l'élément au bout.")
+          console.error("Parent : ", this.tasksList)
+          console.error("Élément après lequel mettre le nouvel élément : ", div)
+          console.error("Nouvel élément : ", foo.obj)
+        } else {
+          this.tasksList.insertBefore(foo.obj, div)
+          placed = true
+        }
+      } catch(err) { 
+        console.error(`# Erreur : ${err}`)
+        console.error("foo.obj = ", foo.obj)
+        console.error("div = ", div)
+        console.error("this.tasksList = ", this.tasksList)
+      }
     }
   })
 
   if ( !placed ) {
     // console.log("CHOSE placée au bout")
-    this.taskContainer.appendChild(foo.obj)
+    this.tasksList.appendChild(foo.obj)
   }
 }
 
@@ -157,7 +172,7 @@ placeElementInContainer(foo){
       if ( placed ) return ; // pour accélérer 
       const divgroup = div.getAttribute('data-group')
       if (foo.group == divgroup) {
-        this.taskContainer.insertBefore(foo.obj, div.nextSibling)
+        this.tasksList.insertBefore(foo.obj, div.nextSibling)
         placed = true
       }
     })
@@ -165,15 +180,17 @@ placeElementInContainer(foo){
 
   if ( !placed ) {
     // console.log("CHOSE placée au bout")
-    this.taskContainer.appendChild(foo.obj)
+    this.tasksList.appendChild(foo.obj)
   }
 }
 
 getAllDivTasksOrDays(){
-  return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .jour')
+  return document.querySelectorAll(`section#${this.name} > div.tasks > .task, section#${this.name} > div.tasks > .jour`)
+  // return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .jour')
 }
 getAllDivTasksOrGroup(){
-  return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .group')
+  return document.querySelectorAll(`section#${this.name} > div.tasks > .task, section#${this.name} > div.tasks > .group`)
+  // return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .group')
 }
 
 /**
@@ -186,7 +203,8 @@ get obj(){
 get name(){
   return this._name || (this._name = ['sans_echeances','current','historique'][this.id])
 }
-get taskContainer(){
+get tasksList(){
   return this._tcont || (this._tcont = DGet('div.tasks', this.obj))
 }
-}
+
+} // class TaskContainer

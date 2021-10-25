@@ -2,6 +2,8 @@
 
 ### BUGS
 
+* Problème d'insertion quand une liste est "pleine" (i.e. qu'elle prend toute la page).
+  => Quand c'est une nouvelle tâche, toujours la mettre en haut ou en bas
 
 ### PROCHES FEATURES
 
