@@ -344,7 +344,8 @@ onToggleDone(e){
   if ( this.hasTasks && newState == STATE_DONE ) {
     //
     // Si une seule sous-tâche n'est pas marquée faite, on doit
-    // interroger l'utlisateur
+    // dire à l'utlisateur qu'il doit finir toutes les sous-tâches
+    // avant de procéder à cette opération.
     //
     var nombre_undone   = 0
     this.subTasks.forEach(task => {

@@ -31,10 +31,12 @@ def save
   # à faire à l'état faite, on doit la passer du dossier current au
   # dossier archives
   #
-  # Non, en fait, maintenant, quelle que soit la tâche, si elle est
-  # marquée faite, elle rejoint l'historique avec la date du jour.
+  # Non, en fait, maintenant, quelle que soit la tâche :
+  #   * SI elle est marquée faite
+  #   * ET qu'elle n'appartient pas à une autre tâche
+  #   ALORS elle rejoint l'historique avec la date du jour.
   #
-  if data['state'] > 1 && data['container'] != 2
+  if data['state'] > 1 && data['container'].is_a?(Integer) && data['container'] != 2
     move_in_historique
   end
   File.delete(path_in_current) if File.exists?(path_in_current)
