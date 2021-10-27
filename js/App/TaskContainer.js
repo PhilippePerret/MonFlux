@@ -90,7 +90,9 @@ prepareFooter(){
 get footer(){return this._footer || (this._footer = DGet('div.container_footer', this.obj))}
 
 /**
+ * 
  * Ajoute la tâche +task+ (instance Task) au container
+ * ---------------------------------------------------
  * 
  * On positionne toujours la tâche après une tâche de temps inférieur
  * Si c'est une tâche historique, on s'assure également que son jour
@@ -120,41 +122,125 @@ insertTask(task){
 }
 
 /**
+ * Placement de la tâche dans l'historique
+ * ---------------------------------------
+ * Note : ça ne concerne pas les sous-tâches.
+ * 
  * C'est le cœur du classement des tâches, des jours et des titres 
  * dans la colonne historique.
  * 
+ * On va procéder de cette manière :
+ * 
+ *  1)  On cherche le jour de la tâche. Tant qu'il n'est pas trouvé,
+ *      on passe à l'élément suivant.
+ *  2)  Une fois le jour trouvé, on cherche le groupe trouvé. Tant
+ *      qu'il n'est pas trouvé, on passe à l'élément suivant.
+ *      Quand il est trouvé, on place la tâche après (peu importe 
+ *      l'ordre, ici)
  */
 placeElementInHistorique(foo){
-  // console.log("Time de la CHOSE à placer :", foo.time)
-  var placed = false
+  if ( foo.isTask ) {
+    this.placeTaskInHistorique(foo)
+  } else if ( foo.isJour ) {
+    this.placeJourInHistorique(foo)
+  } else if ( foo.isGroupDay ) {
+    this.placeGroupDayInHistorique(foo)
+  }
+}
+placeTaskInHistorique(task){
+  const debug = false ; //task.id == '0051'
+  debug && console.log("Placement de la tâche 51")
+  debug && console.log("Temps de la tâche : ", String(task.time))
+  // console.log("Time de la CHOSE à placer :", task.time)
+  var isPlaced          = false
+  var thisIsDayOfTask   = false
+  var thisIsGroupOfTask = false
   this.getAllDivTasksOrDays().forEach( div => {
-    if ( placed ) return ; // pour accélérer 
-    const divtime = Number(div.getAttribute('data-time'))
-    // console.log("Time du jour/tâche comparé : ", divtime)
-    if (foo.time > divtime) {
-      // console.log("Le time de la CHOSE est inférieur => on la place avant le jour/tâche comparé")
-      try {
-        if ( div.parentNode != this.tasksList ) {
-          console.error("Le parent du div avant lequel mettre la tâche n'est pas le bon… J'ajoute l'élément au bout.")
-          console.error("Parent : ", this.tasksList)
-          console.error("Élément après lequel mettre le nouvel élément : ", div)
-          console.error("Nouvel élément : ", foo.obj)
-        } else {
-          this.tasksList.insertBefore(foo.obj, div)
-          placed = true
+    if ( isPlaced ) return ; // pour accélérer
+    // 
+    // Est-ce qu'on a trouvé le jour de la tâche ?
+    // 
+    if ( thisIsDayOfTask ) {
+      // 
+      // Le jour de la tâche a été trouvé, on essaie de trouver son
+      // groupe
+      // 
+      if ( div.classList.contains('group') ) {
+        // <= C'est un groupe
+        var divgroup = div.getAttribute('data-group')
+        if ( divgroup == task.group ) {
+          // 
+          // C'EST LE GROUPE DU JOUR DE LA TÂCHE 
+          // => On peut la placer après
+          // 
+          this.tasksList.insertBefore(task.obj, div.nextSibling)
+          isPlaced = true
         }
-      } catch(err) { 
-        console.error(`# Erreur : ${err}`)
-        console.error("foo.obj = ", foo.obj)
-        console.error("div = ", div)
-        console.error("this.tasksList = ", this.tasksList)
+      }
+    } else {
+      // 
+      // Le jour de la tâche n'a pas été trouvé, on le cherche
+      // 
+      if ( div.classList.contains('jour') ) {
+        var divjour = div.getAttribute('data-jour')
+        // <= C'est un jour
+        thisIsDayOfTask = divjour == task.date
       }
     }
   })
 
-  if ( !placed ) {
+  if ( !isPlaced ) {
     // console.log("CHOSE placée au bout")
-    this.tasksList.appendChild(foo.obj)
+    this.tasksList.appendChild(task.obj)
+  }
+}
+
+/**
+ * Placement du jour dans l'historique
+ * 
+ * On doit le placer avant un jour qui serait plus tard
+ */
+placeJourInHistorique(jour){
+  const divJours = this.getAllDivDaysInHistorique()
+  const jourtime = jour.time
+  var isPlaced = false
+  divJours.forEach(divday => {
+    if ( isPlaced ) return ;
+    const daytime = Number(divday.getAttribute('data-time'))
+    if ( daytime < jourtime ) {
+      this.tasksList.insertBefore(jour.obj, divday)
+      isPlaced = true
+    }
+  })
+  if ( !isPlaced ) {
+    this.tasksList.appendChild(jour.obj)
+  }
+}
+/**
+ * Placement d'un groupe dans l'historique
+ * 
+ * On doit trouver son jour et le mettre juste après
+ */
+placeGroupDayInHistorique(group){
+  const debug = false
+  debug && console.log(">> Placement du group ", group)
+  const divJours = this.getAllDivDaysInHistorique()
+  const groupjour = group.jour.yymmdd
+  debug && console.log(">> Son jour cherché : ", groupjour)
+  var isPlaced = false
+  divJours.forEach(divday => {
+    if ( isPlaced ) return ; 
+    const dayjour = divday.getAttribute('data-jour')
+    debug && console.log(">> Comparaison avec jour : ", dayjour)
+    if ( groupjour == dayjour) {
+      debug && console.log(">> C'est le bon jour, on place le groupe")
+      this.tasksList.insertBefore(group.obj, divday.nextSibling)
+      isPlaced = true
+    }
+  })
+  if ( !isPlaced ) {
+    debug && console.log(">> Le bon jour n'a pas été trouvé… (ça ne devrait pas arriver)")
+    this.tasksList.appendChild(group.obj)
   }
 }
 
@@ -185,12 +271,15 @@ placeElementInContainer(foo){
 }
 
 getAllDivTasksOrDays(){
-  return document.querySelectorAll(`section#${this.name} > div.tasks > .task, section#${this.name} > div.tasks > .jour`)
+  return document.querySelectorAll(`section#${this.name} > div.tasks > .task, section#${this.name} > div.tasks > .group, section#${this.name} > div.tasks > .jour`)
   // return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .jour')
 }
 getAllDivTasksOrGroup(){
   return document.querySelectorAll(`section#${this.name} > div.tasks > .task, section#${this.name} > div.tasks > .group`)
   // return this.obj.querySelectorAll('div.tasks > .task, div.tasks > .group')
+}
+getAllDivDaysInHistorique(){
+  return document.querySelectorAll(`section#historique > div.tasks > .jour`)
 }
 
 /**

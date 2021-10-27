@@ -35,6 +35,9 @@ constructor(yymmdd){
   this.isBuilt  = false
 }
 
+
+get isJour(){return true}
+
 /**
  * Ajoute un "groupe-jour" (GroupDay) au jour 
  * Un groupe-jour, c'est quelque chose comme "CAMI" ou "ICARE" mais

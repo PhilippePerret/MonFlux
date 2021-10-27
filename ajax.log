@@ -583,3 +583,55 @@ ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"
 2021 10 26 - 16:40:15 --- = fichier historique mois précédent existe
 ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0025\",\"state\":2,\"container\":2,\"date\":\"21/10/26\",\"content\":\"Finaliser la première version du GAT\",\"group\":\"ICED\",\"tasks\":[],\"files\":[],\"new\":false}}" 2>&1
 2021 10 26 - 16:40:20 --- Nouvelles données bien enregistrées : {"id"=>"0025", "state"=>2, "container"=>2, "date"=>"21/10/26", "content"=>"Finaliser la premi\u00E8re version du GAT", "group"=>"ICED", "tasks"=>[], "files"=>[], "new"=>false}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0014\",\"state\":2,\"container\":1,\"date\":\"21/10/21\",\"content\":\"Poursuivre la base de cette application (MonFlux)\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[]}}" 2>&1
+2021 10 26 - 17:07:52 --- Nouvelles données bien enregistrées : {"id"=>"0014", "state"=>2, "container"=>2, "date"=>"21/10/21", "content"=>"Poursuivre la base de cette application (MonFlux)", "group"=>"MonFlux", "tasks"=>[], "files"=>[]}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0054\",\"state\":0,\"container\":1,\"date\":\"21/10/26\",\"content\":\"Poursuivre le développement (en corrigeant les bugs notamment)\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 26 - 17:08:11 --- Nouvelles données bien enregistrées : {"id"=>"0054", "state"=>0, "container"=>1, "date"=>"21/10/26", "content"=>"Poursuivre le d\u00E9veloppement (en corrigeant les bugs notamment)", "group"=>"MonFlux", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/save_task.rb "{\"data\":{\"id\":\"0027\",\"state\":2,\"container\":2,\"date\":\"21/10/26\",\"content\":\"Poursuivre le développement (cf. la Todo liste)\",\"group\":\"MonFlux\",\"tasks\":[],\"files\":[],\"new\":true}}" 2>&1
+2021 10 26 - 17:08:16 --- Nouvelles données bien enregistrées : {"id"=>"0027", "state"=>2, "container"=>2, "date"=>"21/10/26", "content"=>"Poursuivre le d\u00E9veloppement (cf. la Todo liste)", "group"=>"MonFlux", "tasks"=>[], "files"=>[], "new"=>true}
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:43:09 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/destroy_task.rb "{\"task_ids\":[\"0002\"]}" 2>&1
+2021 10 27 - 08:43:31 --- Destruction OK de la tâche #0002
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:43:45 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:48:15 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:48:21 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:49:55 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:50:04 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:52:10 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:55:46 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:55:49 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 08:55:49 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 09:00:47 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 09:19:21 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 09:19:27 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 09:31:22 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:07:54 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:10:17 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:11:02 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:16:43 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:17:16 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:17:57 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:21:25 --- = fichier historique mois précédent existe
+ruby /Users/philippeperret/Sites/MonFlux/ajax/scripts/load_task.rb "{\"type\":\"current\"}" 2>&1
+2021 10 27 - 10:23:24 --- = fichier historique mois précédent existe

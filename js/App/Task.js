@@ -25,7 +25,16 @@ constructor(data){
 
 save(){
   // message("Enregistrement de la tâche…", 'action')
-  return ajax({script:'save_task.rb', data: this.data})
+  var finalData = this.data
+  //
+  // Pour retirer la propriété :new des nouvelles tâches
+  // 
+  if ( this.isNew ) {
+    finalData = Object.assign({}, finalData)
+    finalData.new = null
+    delete finalData.new
+  }
+  return ajax({script:'save_task.rb', data: finalData})
   .then(ret => {
     console.info("Tâche sauvée avec ses nouvelles données", this)
     // message("Tâche enregistrée.")
@@ -184,9 +193,22 @@ initialize(){
  * exécutée, on met son jour à aujourd'hui
  * 
  * Attention : ici, la tâche n'est pas encore affichée
+ * 
+ * La méthode, maintenant, tient compte du fait que la tâche peut
+ * être une sous-tâche.
+ * 
  */
 setTodayIfUndone(){
-  if ( this.state < 2 && this.container_id == 2){
+  var setToday = false
+  if ( this.state < 2 ) {
+    if ( this.isHistorique ) {
+      setToday = true
+    } else if ( this.isSubTask && this.parentTask.isHistorique ) {
+      // <= un sous-tâche d'une tâche dans l'historique
+      setToday = true
+    }
+  }
+  if (setToday) {
     this._date = this.data['date'] = Jour.todayAsYYMMDD
   }
 }
@@ -399,7 +421,11 @@ replaceCrochetsInContent(tout, libelle, lien){
  * --- Propriétés volatiles ---
  **/
 
-
+/**
+ * Toujours vrai
+ * (pour faire la distinction avec les jours, et les groupes)
+ */
+get isTask(){return true}
 /**
  * Retourne true si la tâche est une sous-tâche c'est-à-dire si
  * elle appartient à une autre tâche

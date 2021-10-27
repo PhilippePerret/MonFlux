@@ -50,14 +50,26 @@ static load_and_display(){
 
 }
 
+/**
+ * Instanciation et initialisation de toutes les tâches
+ * 
+ */
 static instancieAllTasks(ret){
   this.items = {}
   var taches = ret.tasks.map(dtache => {
     const tache = new Task(dtache)
     this.add(tache)
-    tache.initialize()
     return tache ; // map
   })
+  // 
+  // Maintenant qu'on a instancier toutes les tâches, on peut les
+  // "initialiser". Principalement, on met les temps à aujourd'hui
+  // si ce sont des tâches de l'historique, non accomplies. On a 
+  // besoin d'avoir instancié toutes les tâches avant, car on a 
+  // besoin des tâches parent pour les enfants.
+  // 
+  taches.forEach(tache => tache.initialize() )
+
   return taches
 }
 

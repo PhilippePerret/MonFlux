@@ -85,7 +85,13 @@ class Message {
    * du temps déjà en attente (message précédent)
    */
   static calcEndTime(msg, type){
-    var duree = (msg.split(' ').length / 7) * 1.5
+    try {
+      var duree = (msg.split(' ').length / 7) * 1.5
+    } catch(err) {
+      console.error("J'ai recontré une erreur :", err)
+      console.error("Le message msg était : ", msg)
+      return
+    }
     duree > 3 || (duree = 3)
     if ( type == 'error' ) duree = duree * 4
     if ( !this.endTime ) {

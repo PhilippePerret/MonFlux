@@ -29,6 +29,8 @@ constructor(groupName, jour){
   this.isBuilt = false
 }
 
+get isGroupDay(){return true}
+
 build(){
   this.obj = DCreate('DIV', {class:'group', 'data-jour':this.jour.yymmdd, 'data-group':this.groupName, 'data-time': this.time, text:this.groupName})
   TaskContainer.historique.placeElementInHistorique(this)
