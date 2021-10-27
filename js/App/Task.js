@@ -231,7 +231,7 @@ build_and_observe(){
 }
 build(){
   var o ;
-  const obj = DCreate('DIV', {id: this.domId, class:'task', 'data-time':this.time})
+  const obj = DCreate('DIV', {id: this.domId, class:'task', 'data-current':String(this.isCurrent), 'data-time':this.time})
   
   // Boite des boutons
   var toolbox = DCreate('DIV', {class:'tools fright'})
@@ -437,6 +437,15 @@ get isTask(){return true}
  */
 get isSubTask(){
   return 'string' == typeof(this.container_id)
+}
+
+/**
+ * Renvoie vrai si :
+ *  - la tâche est une tache du jour
+ *  - la tâche se trouve dans le container historique
+ */
+get isCurrent(){
+  return this.jour.isCurrent && this.isHistorique
 }
 
 /**

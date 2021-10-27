@@ -55,9 +55,13 @@ addGroup(groupName){
 
 
 build(){
-  this.obj = DCreate('DIV', {class:'jour', 'data-jour':this.yymmdd, 'data-time': this.time, text:this.formated})
+  this.obj = DCreate('DIV', {class:'jour', 'data-current': String(this.isCurrent), 'data-jour':this.yymmdd, 'data-time': this.time, text:this.formated})
   TaskContainer.historique.placeElementInHistorique(this)
   this.isBuilt = true
+}
+
+get isCurrent(){
+  return this.yymmdd == Jour.todayAsYYMMDD
 }
 
 /**

@@ -39,11 +39,8 @@ section.task-container > div.container_footer a {
 
 /* N'importe quelle tâche */
 section.task-container div.task {
-  border: 2px solid transparent;
+  font-size: 0.85em;
   cursor: pointer;
-}
-section.task-container div.task:hover {
-  border-color: #CCF;
 }
 section.task-container div.task:before {
   content: '– ';
@@ -78,8 +75,6 @@ section.task-container > div.tasks {
 
 /* Les tâches principales */
 section.task-container > div.tasks > div.task {
-  /*border: 1px solid #DDD;*/
-  /*border-radius: 12px;*/
   width: calc(100% - 76px);
   margin-left: 40px;
   padding: 0px 16px;
@@ -98,18 +93,19 @@ section.task-container > div.tasks div.task.done {
 section.task-container div.tasks div.jour {
   font-weight: bold;
   font-family: 'Arial';
-  font-size: 1.15em;
+  font-size: 0.9em;
   border-top: 1px solid #CCC;
   margin-top: 1em;
   padding-top: 0.8em;
   margin-left: 8px;
 }
+
+
 /* Les groupes (groupDay) dans l'historique */
 section.task-container div.tasks div.group {
   font-variant: all-small-caps;
-  font-weight: bold;
   font-family: 'Arial Narrow';
-  font-size: 1.2em;
+  font-size: 1em;
   margin-left: 1em;
 }
 
@@ -121,4 +117,39 @@ button.link_in_content {
   font-family: inherit;
   font-style:  inherit;
   cursor: alias;
+}
+
+
+/* Le jour courant  */
+section#historique div.tasks div.jour[data-current="true"] 
+{
+  /*color: red;*/
+  font-size: 1.15em;
+}
+section#sans_echeances div.tasks div.jour,
+section#current div.tasks div.jour
+{
+    border: 2px solid transparent;
+}
+/* Les groupes courants dans l'historique  */
+section#sans_echeances div.tasks div.group,
+section#current div.tasks div.group,
+section.task-container div.tasks div.group[data-current="true"] {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* Les tâches du jour courant dans l'historique */
+section:not(#historique) div.tasks div.task,
+section.task-container div.tasks div.task[data-current="true"] 
+{
+  border: 2px solid transparent;
+}
+section.task-container div.tasks div.task[data-current="true"] {
+  font-size: 1.1em;
+}
+section:not(#historique) div.tasks div.task:hover,
+section#historique div.tasks div.task[data-current="true"]:hover
+{
+  border-color: #CCF;
+}
 }
