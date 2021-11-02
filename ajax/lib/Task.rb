@@ -17,8 +17,12 @@ def initialize data
     @data = data
   else
     @id = data['id']||data[:id]
-    load if File.exist?(path_in_current)
+    load if exist?
   end
+end
+
+def exist?
+  File.exist?(path_in_current)
 end
 
 def load
