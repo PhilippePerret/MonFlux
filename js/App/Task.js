@@ -185,7 +185,7 @@ addInContainer(){
  */
 initialize(){
   Group.get(this.group) // Pour créer l'instance si elle n'existe pas
-  this.setTodayIfUndone()
+  this.setTodayIfPastAndUndone()
   this.defineLastTaskId()
 }
 /**
@@ -198,10 +198,12 @@ initialize(){
  * être une sous-tâche.
  * 
  */
-setTodayIfUndone(){
+setTodayIfPastAndUndone(){
   var setToday = false
   if ( this.state < 2 ) {
-    if ( this.isHistorique ) {
+    if ( this.isInFuture ) { // On ne touche pas à une tâche dans le futur
+      setToday = false
+    } else if ( this.isHistorique ) {
       setToday = true
     } else if ( this.isSubTask && this.parentTask.isHistorique ) {
       // <= un sous-tâche d'une tâche dans l'historique
@@ -446,6 +448,14 @@ get isSubTask(){
  */
 get isCurrent(){
   return this.jour.isCurrent && this.isHistorique
+}
+
+/**
+ * Renvoie vrai si :
+ *  - la tâche est dans le futur (au moins demain)
+ */
+get isInFuture(){
+  return getFirstHourOf(this.dateAsDate) > LAST_HOUR_OF_DAY
 }
 
 /**
