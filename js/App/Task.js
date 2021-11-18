@@ -199,18 +199,28 @@ initialize(){
  * 
  */
 setTodayIfPastAndUndone(){
+  const VERBEUX = false ; // this.id == '0157'
+  VERBEUX && console.info("C'est lui")
   var setToday = false
   if ( this.state < 2 ) {
     if ( this.isInFuture ) { // On ne touche pas à une tâche dans le futur
+      VERBEUX && console.info("Date dans le futur")
       setToday = false
     } else if ( this.isHistorique ) {
+      VERBEUX && console.info("Tâche dans l'historique")
       setToday = true
     } else if ( this.isSubTask && this.parentTask.isHistorique ) {
+      VERBEUX && console.info("Sous-tâche et parent dans l'historique")
       // <= un sous-tâche d'une tâche dans l'historique
       setToday = true
     }
   }
+  VERBEUX && console.info("setToday est", setToday)
   if (setToday) {
+    this._dasd = null;
+    this._time = null;
+    this._jour = null;
+    this._groupday = null;
     this._date = this.data['date'] = Jour.todayAsYYMMDD
   }
 }
