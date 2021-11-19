@@ -62,7 +62,7 @@ static instancieAllTasks(ret){
     return tache ; // map
   })
   // 
-  // Maintenant qu'on a instancier toutes les tâches, on peut les
+  // Maintenant qu'on a instancié toutes les tâches, on peut les
   // "initialiser". Principalement, on met les temps à aujourd'hui
   // si ce sont des tâches de l'historique, non accomplies. On a 
   // besoin d'avoir instancié toutes les tâches avant, car on a 
