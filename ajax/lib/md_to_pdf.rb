@@ -77,12 +77,12 @@ end
 
 def convert_to_pdf_with_calibre
   res = `#{EBOOK_CONVERT_CMD} '#{html_path}' '#{pdf_path}' 2>&1`
-  log.puts "<- Retour opération Calibre : #{res}"
+  log.puts "<- Retour opération Calibre : #{res.force_encoding('utf-8')}"
   File.exist?(pdf_path)
 end
 def convert_to_pdf_with_wk
   res = `/usr/local/bin/wkhtmltopdf "file://#{html_path}" "wk-#{pdf_path}" 2>&1`
-  log.puts "<- Retour opération wkhtmltopdf : #{res}"
+  log.puts "<- Retour opération wkhtmltopdf : #{res.force_encoding('utf-8')}"
   File.exist?(pdf_path)
 end
 
